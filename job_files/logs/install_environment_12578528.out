@@ -1,0 +1,196 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+Processing /gpfs/home4/scur1229/nesymres/src
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting numpy (from nesymres==0.1.0)
+  Downloading numpy-2.3.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (62 kB)
+Collecting sympy (from nesymres==0.1.0)
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting pandas (from nesymres==0.1.0)
+  Downloading pandas-2.3.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (91 kB)
+Collecting click (from nesymres==0.1.0)
+  Downloading click-8.2.1-py3-none-any.whl.metadata (2.5 kB)
+Collecting tqdm (from nesymres==0.1.0)
+  Downloading tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+Collecting numexpr (from nesymres==0.1.0)
+  Downloading numexpr-2.11.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.0 kB)
+Collecting jsons (from nesymres==0.1.0)
+  Downloading jsons-1.6.3-py3-none-any.whl.metadata (9.3 kB)
+Collecting h5py (from nesymres==0.1.0)
+  Downloading h5py-3.14.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.7 kB)
+Collecting scipy (from nesymres==0.1.0)
+  Downloading scipy-1.16.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (61 kB)
+Collecting dataclass_dict_convert (from nesymres==0.1.0)
+  Downloading dataclass_dict_convert-1.7.4-py3-none-any.whl.metadata (3.3 kB)
+Collecting hydra-core==1.0.0 (from nesymres==0.1.0)
+  Downloading hydra_core-1.0.0-py3-none-any.whl.metadata (4.2 kB)
+Collecting ordered_set (from nesymres==0.1.0)
+  Downloading ordered_set-4.1.0-py3-none-any.whl.metadata (5.3 kB)
+Collecting wandb (from nesymres==0.1.0)
+  Downloading wandb-0.20.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
+Collecting omegaconf>=2.0.1 (from hydra-core==1.0.0->nesymres==0.1.0)
+  Downloading omegaconf-2.3.0-py3-none-any.whl.metadata (3.9 kB)
+Collecting antlr4-python3-runtime==4.8 (from hydra-core==1.0.0->nesymres==0.1.0)
+  Downloading antlr4-python3-runtime-4.8.tar.gz (112 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+INFO: pip is looking at multiple versions of omegaconf to determine which version is compatible with other requirements. This could take a while.
+Collecting omegaconf>=2.0.1 (from hydra-core==1.0.0->nesymres==0.1.0)
+  Downloading omegaconf-2.2.3-py3-none-any.whl.metadata (3.9 kB)
+  Downloading omegaconf-2.2.2-py3-none-any.whl.metadata (3.9 kB)
+  Downloading omegaconf-2.2.1-py3-none-any.whl.metadata (3.6 kB)
+  Downloading omegaconf-2.1.2-py3-none-any.whl.metadata (3.6 kB)
+Collecting PyYAML>=5.1.0 (from omegaconf>=2.0.1->hydra-core==1.0.0->nesymres==0.1.0)
+  Downloading PyYAML-6.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting python-dateutil (from dataclass_dict_convert->nesymres==0.1.0)
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting stringcase (from dataclass_dict_convert->nesymres==0.1.0)
+  Downloading stringcase-1.2.0.tar.gz (3.0 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting typish>=1.9.2 (from jsons->nesymres==0.1.0)
+  Downloading typish-1.9.3-py3-none-any.whl.metadata (7.2 kB)
+Collecting pytz>=2020.1 (from pandas->nesymres==0.1.0)
+  Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas->nesymres==0.1.0)
+  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting six>=1.5 (from python-dateutil->dataclass_dict_convert->nesymres==0.1.0)
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy->nesymres==0.1.0)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting gitpython!=3.1.29,>=1.0.0 (from wandb->nesymres==0.1.0)
+  Downloading GitPython-3.1.44-py3-none-any.whl.metadata (13 kB)
+Collecting packaging (from wandb->nesymres==0.1.0)
+  Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting platformdirs (from wandb->nesymres==0.1.0)
+  Downloading platformdirs-4.3.8-py3-none-any.whl.metadata (12 kB)
+Collecting protobuf!=4.21.0,!=5.28.0,<7,>=3.19.0 (from wandb->nesymres==0.1.0)
+  Downloading protobuf-6.31.1-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
+Collecting psutil>=5.0.0 (from wandb->nesymres==0.1.0)
+  Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+Collecting pydantic<3 (from wandb->nesymres==0.1.0)
+  Downloading pydantic-2.11.7-py3-none-any.whl.metadata (67 kB)
+Collecting requests<3,>=2.0.0 (from wandb->nesymres==0.1.0)
+  Downloading requests-2.32.4-py3-none-any.whl.metadata (4.9 kB)
+Collecting sentry-sdk>=2.0.0 (from wandb->nesymres==0.1.0)
+  Downloading sentry_sdk-2.30.0-py2.py3-none-any.whl.metadata (10 kB)
+Collecting setproctitle (from wandb->nesymres==0.1.0)
+  Downloading setproctitle-1.3.6-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
+Collecting typing-extensions<5,>=4.8 (from wandb->nesymres==0.1.0)
+  Downloading typing_extensions-4.14.0-py3-none-any.whl.metadata (3.0 kB)
+Collecting annotated-types>=0.6.0 (from pydantic<3->wandb->nesymres==0.1.0)
+  Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.33.2 (from pydantic<3->wandb->nesymres==0.1.0)
+  Downloading pydantic_core-2.33.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+Collecting typing-inspection>=0.4.0 (from pydantic<3->wandb->nesymres==0.1.0)
+  Downloading typing_inspection-0.4.1-py3-none-any.whl.metadata (2.6 kB)
+Collecting charset_normalizer<4,>=2 (from requests<3,>=2.0.0->wandb->nesymres==0.1.0)
+  Downloading charset_normalizer-3.4.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+Collecting idna<4,>=2.5 (from requests<3,>=2.0.0->wandb->nesymres==0.1.0)
+  Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting urllib3<3,>=1.21.1 (from requests<3,>=2.0.0->wandb->nesymres==0.1.0)
+  Downloading urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting certifi>=2017.4.17 (from requests<3,>=2.0.0->wandb->nesymres==0.1.0)
+  Downloading certifi-2025.6.15-py3-none-any.whl.metadata (2.4 kB)
+Collecting gitdb<5,>=4.0.1 (from gitpython!=3.1.29,>=1.0.0->wandb->nesymres==0.1.0)
+  Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython!=3.1.29,>=1.0.0->wandb->nesymres==0.1.0)
+  Downloading smmap-5.0.2-py3-none-any.whl.metadata (4.3 kB)
+Downloading hydra_core-1.0.0-py3-none-any.whl (120 kB)
+Downloading omegaconf-2.1.2-py3-none-any.whl (74 kB)
+Downloading PyYAML-6.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (762 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 763.0/763.0 kB 57.8 MB/s eta 0:00:00
+Downloading click-8.2.1-py3-none-any.whl (102 kB)
+Downloading dataclass_dict_convert-1.7.4-py3-none-any.whl (15 kB)
+Downloading h5py-3.14.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 161.6 MB/s eta 0:00:00
+Downloading numpy-2.3.1-cp311-cp311-manylinux_2_28_x86_64.whl (16.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 128.4 MB/s eta 0:00:00
+Downloading jsons-1.6.3-py3-none-any.whl (60 kB)
+Downloading typish-1.9.3-py3-none-any.whl (45 kB)
+Downloading numexpr-2.11.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (401 kB)
+Downloading ordered_set-4.1.0-py3-none-any.whl (7.6 kB)
+Downloading pandas-2.3.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 256.4 MB/s eta 0:00:00
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Downloading scipy-1.16.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 166.0 MB/s eta 0:00:00
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 225.5 MB/s eta 0:00:00
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 50.0 MB/s eta 0:00:00
+Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+Downloading wandb-0.20.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.2/23.2 MB 128.1 MB/s eta 0:00:00
+Downloading protobuf-6.31.1-cp39-abi3-manylinux2014_x86_64.whl (321 kB)
+Downloading pydantic-2.11.7-py3-none-any.whl (444 kB)
+Downloading pydantic_core-2.33.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 162.4 MB/s eta 0:00:00
+Downloading requests-2.32.4-py3-none-any.whl (64 kB)
+Downloading charset_normalizer-3.4.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (147 kB)
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+Downloading typing_extensions-4.14.0-py3-none-any.whl (43 kB)
+Downloading urllib3-2.5.0-py3-none-any.whl (129 kB)
+Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Downloading certifi-2025.6.15-py3-none-any.whl (157 kB)
+Downloading GitPython-3.1.44-py3-none-any.whl (207 kB)
+Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+Downloading smmap-5.0.2-py3-none-any.whl (24 kB)
+Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (277 kB)
+Downloading sentry_sdk-2.30.0-py2.py3-none-any.whl (343 kB)
+Downloading typing_inspection-0.4.1-py3-none-any.whl (14 kB)
+Downloading packaging-25.0-py3-none-any.whl (66 kB)
+Downloading platformdirs-4.3.8-py3-none-any.whl (18 kB)
+Downloading setproctitle-1.3.6-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (31 kB)
+Building wheels for collected packages: nesymres, antlr4-python3-runtime, stringcase
+  DEPRECATION: Building 'nesymres' using the legacy setup.py bdist_wheel mechanism, which will be removed in a future version. pip 25.3 will enforce this behaviour change. A possible replacement is to use the standardized build interface by setting the `--use-pep517` option, (possibly combined with `--no-build-isolation`), or adding a `pyproject.toml` file to the source tree of 'nesymres'. Discussion can be found at https://github.com/pypa/pip/issues/6334
+  Building wheel for nesymres (setup.py): started
+  Building wheel for nesymres (setup.py): finished with status 'done'
+  Created wheel for nesymres: filename=nesymres-0.1.0-py3-none-any.whl size=1120 sha256=c0f6330b78b6f8489fcdaa4e4463e7a3b641e7157f358794979f9a3725cb917f
+  Stored in directory: /gpfs/scratch1/nodespecific/gcn2/scur1229.12578528/pip-ephem-wheel-cache-dr239bqr/wheels/72/e2/4a/9609879cf627f8ff3879d222a5cd52f0a7ba512f09fbe1b4ef
+  DEPRECATION: Building 'antlr4-python3-runtime' using the legacy setup.py bdist_wheel mechanism, which will be removed in a future version. pip 25.3 will enforce this behaviour change. A possible replacement is to use the standardized build interface by setting the `--use-pep517` option, (possibly combined with `--no-build-isolation`), or adding a `pyproject.toml` file to the source tree of 'antlr4-python3-runtime'. Discussion can be found at https://github.com/pypa/pip/issues/6334
+  Building wheel for antlr4-python3-runtime (setup.py): started
+  Building wheel for antlr4-python3-runtime (setup.py): finished with status 'done'
+  Created wheel for antlr4-python3-runtime: filename=antlr4_python3_runtime-4.8-py3-none-any.whl size=141246 sha256=c324369169577f49e871efe1f7faaf67d89fe8ea4dd6b1522de18daf759100ae
+  Stored in directory: /gpfs/home4/scur1229/.cache/pip/wheels/21/10/be/9a70640a3a60ed4a7e1a45e49bb9f58b04692d5d7b517bd39e
+  DEPRECATION: Building 'stringcase' using the legacy setup.py bdist_wheel mechanism, which will be removed in a future version. pip 25.3 will enforce this behaviour change. A possible replacement is to use the standardized build interface by setting the `--use-pep517` option, (possibly combined with `--no-build-isolation`), or adding a `pyproject.toml` file to the source tree of 'stringcase'. Discussion can be found at https://github.com/pypa/pip/issues/6334
+  Building wheel for stringcase (setup.py): started
+  Building wheel for stringcase (setup.py): finished with status 'done'
+  Created wheel for stringcase: filename=stringcase-1.2.0-py3-none-any.whl size=3636 sha256=795d908fdd05c5763ce3e5d69a2b0b05ce346ca754f1d4a0e9fb3b6b9f9bca63
+  Stored in directory: /gpfs/home4/scur1229/.cache/pip/wheels/b4/33/6d/d0820be98063da218c3206fbad2381cd2db3fbb1a0f0d254b5
+Successfully built nesymres antlr4-python3-runtime stringcase
+Installing collected packages: typish, stringcase, pytz, mpmath, antlr4-python3-runtime, urllib3, tzdata, typing-extensions, tqdm, sympy, smmap, six, setproctitle, PyYAML, psutil, protobuf, platformdirs, packaging, ordered_set, numpy, jsons, idna, click, charset_normalizer, certifi, annotated-types, typing-inspection, sentry-sdk, scipy, requests, python-dateutil, pydantic-core, omegaconf, numexpr, h5py, gitdb, pydantic, pandas, hydra-core, gitpython, dataclass_dict_convert, wandb, nesymres
+
+Successfully installed PyYAML-6.0.2 annotated-types-0.7.0 antlr4-python3-runtime-4.8 certifi-2025.6.15 charset_normalizer-3.4.2 click-8.2.1 dataclass_dict_convert-1.7.4 gitdb-4.0.12 gitpython-3.1.44 h5py-3.14.0 hydra-core-1.0.0 idna-3.10 jsons-1.6.3 mpmath-1.3.0 nesymres-0.1.0 numexpr-2.11.0 numpy-2.3.1 omegaconf-2.1.2 ordered_set-4.1.0 packaging-25.0 pandas-2.3.0 platformdirs-4.3.8 protobuf-6.31.1 psutil-7.0.0 pydantic-2.11.7 pydantic-core-2.33.2 python-dateutil-2.9.0.post0 pytz-2025.2 requests-2.32.4 scipy-1.16.0 sentry-sdk-2.30.0 setproctitle-1.3.6 six-1.17.0 smmap-5.0.2 stringcase-1.2.0 sympy-1.14.0 tqdm-4.67.1 typing-extensions-4.14.0 typing-inspection-0.4.1 typish-1.9.3 tzdata-2025.2 urllib3-2.5.0 wandb-0.20.1
+
+JOB STATISTICS
+==============
+Job ID: 12578528
+Cluster: snellius
+User/Group: scur1229/scur1229
+State: RUNNING
+Nodes: 1
+Cores per node: 9
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 00:06:45 core-walltime
+Job Wall-clock time: 00:00:45
+Memory Utilized: 0.00 MB
+Memory Efficiency: 0.00% of 60.00 GB (60.00 GB/node)
+WARNING: Efficiency statistics can only be obtained after the job has ended as seff tool is based on the accounting database data.
