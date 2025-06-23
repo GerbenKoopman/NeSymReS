@@ -6,6 +6,7 @@ test_path: data/validation
 model_path: /local/home/lbiggio/NeuralSymbolicRegressionThatScales/weights/10MCompleted.ckpt  
 
 wandb: True
+wandb_project: "nesymres"
 num_of_workers: 28
 batch_size: 25
 epochs: 20
