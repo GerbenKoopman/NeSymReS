@@ -254,3 +254,43 @@ class BeamHypotheses:
         if self.early_stopping:
             return True
         return self.worst_score >= best_sum_logprobs / self.max_len**self.length_penalty
+
+
+def generate_multiple_beams(
+    env,
+    dec,
+    decoder_args,
+    beam_configs: List[dict],
+    early_stopping: bool,
+) -> List[Tuple[torch.Tensor, torch.Tensor, List["BeamHypotheses"]]]:
+    """
+    Run multiple beam search configurations and return predictions for each.
+
+    Args:
+        env: Environment containing vocabulary and special tokens.
+        dec: Decoder model.
+        decoder_args: Tuple containing decoder arguments (target, encoder source, masks).
+        beam_configs: List of configurations for beam search (beam_size, length_penalty, max_len).
+        early_stopping: Whether to stop early when conditions are met.
+
+    Returns:
+        List of tuples containing decoded tensor, target lengths, and generated hypotheses for each configuration.
+    """
+    results = []
+    for config in beam_configs:
+        beam_size = config.get("beam_size", 5)
+        length_penalty = config.get("length_penalty", 1.0)
+        max_len = config.get("max_len", 100)
+
+        result = generate_beam(
+            env,
+            dec,
+            decoder_args,
+            beam_size,
+            length_penalty,
+            early_stopping,
+            max_len,
+        )
+        results.append(result)
+
+    return results

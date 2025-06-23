@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from types import CodeType
-from typing import List, Tuple
+from typing import List, Tuple, Optional
 from torch.distributions import Uniform, Normal, Distribution
 from dataclass_dict_convert import dataclass_dict_convert
 import torch
@@ -10,11 +10,11 @@ class Equation:
     code: CodeType
     expr: str
     coeff_dict: dict
-    variables: list #FIXME
-    support: tuple = None
-    tokenized: list = None
+    variables: list
+    support: Optional[tuple] = None
+    tokenized: Optional[list] = None
     valid: bool = True
-    number_of_points: int = None
+    number_of_points: Optional[int] = None
     
 @dataclass 
 class NNEquation:
@@ -74,19 +74,19 @@ class DatasetDetails:
     total_number_of_eqs: int
     eqs_per_hdf: int
     generator_details: GeneratorDetails
-    unique_index: set = None
+    unique_index: Optional[set] = None
     
 
 
 @dataclass
 class BFGSParams:
     activated: bool = True
-    n_restarts: bool = 10
+    n_restarts: int = 10
     add_coefficients_if_not_existing: bool = False
     normalization_o: bool = False
     idx_remove: bool = True
-    normalization_type: str = ["MSE","NMSE"][0]
-    stop_time: int = 1e9
+    normalization_type: str = "MSE"
+    stop_time: int = int(1e9)
 
 @dataclass
 class FitParams:
@@ -95,10 +95,12 @@ class FitParams:
     total_coefficients: list
     total_variables: list
     rewrite_functions: list
-    una_ops: list = None
-    bin_ops: list = None
+    una_ops: Optional[list] = None
+    bin_ops: Optional[list] = None
     bfgs: BFGSParams = BFGSParams()
     beam_size: int = 2
+    length_penalty: float = 1.0
+    max_len: int = 100
     
 # @dataclass
 # class ConstantsOptions:
