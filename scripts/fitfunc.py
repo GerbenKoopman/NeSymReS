@@ -57,20 +57,34 @@ def main(cfg):
     model.cuda()
     fitfunc = partial(model.fitfunc,cfg_params=params_fit)
 
+    beam_configs = [
+        {"beam_size": 1, "length_penalty": 1.0, "max_len": 50},
+        {"beam_size": 3, "length_penalty": 1.0, "max_len": 75},
+        {"beam_size": 5, "length_penalty": 1.0, "max_len": 100},
+        {"beam_size": 10, "length_penalty": 1.0, "max_len": 150},
+    ]
+
     for batch in data.test_dataloader():
         if not len(batch[0]):
             continue
-        eq = NNEquation(batch[0][0],batch[1][0],batch[2][0])
-        X,y = eq.numerical_values[:-1],eq.numerical_values[-1:] 
+        eq = NNEquation(batch[0][0], batch[1][0], batch[2][0])
+        X, y = eq.numerical_values[:-1], eq.numerical_values[-1:]
         if len(X.reshape(-1)) == 0:
             print("Skipping equation because no points are valid")
             continue
         print(f"Testing expressions {eq.expr}")
-        breakpoint()
-        output = fitfunc(X.T,y.squeeze()) 
-        breakpoint()
-        print(f"GT: {eq.expr}")
-        print(f'Prediction: {output["best_bfgs_preds"]}')
+
+        # Run multiple beam search configurations
+        outputs = []
+        for config in beam_configs:
+            params_fit.beam_size = config["beam_size"]
+            fitfunc = partial(model.fitfunc, cfg_params=params_fit)
+            output = fitfunc(X.T, y.squeeze())
+            outputs.append({"config": config, "output": output})
+
+        for result in outputs:
+            print(f"Config: {result['config']}")
+            print(f"Prediction: {result['output']['best_bfgs_preds']}")
         print("Evaluating")
         
 if __name__ == "__main__":

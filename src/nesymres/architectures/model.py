@@ -11,6 +11,25 @@ from ..dataset.generator import Generator, InvalidPrefixExpression
 from itertools import chain
 from sympy import lambdify 
 from . import bfgs
+from torch.optim.adam import Adam
+from .set_transformer import MAB, SAB, ISAB, PMA
+
+
+class SetTransformer(nn.Module):
+    def __init__(self, dim_input, dim_hidden, num_heads, num_inds, num_outputs):
+        super(SetTransformer, self).__init__()
+        self.enc = nn.Sequential(
+            ISAB(dim_input, dim_hidden, num_heads, num_inds),
+            ISAB(dim_hidden, dim_hidden, num_heads, num_inds)
+        )
+        self.dec = nn.Sequential(
+            PMA(dim_hidden, num_heads, num_outputs),
+            SAB(dim_hidden, dim_hidden, num_heads),
+            nn.Linear(dim_hidden, dim_hidden)
+        )
+
+    def forward(self, X):
+        return self.dec(self.enc(X))
 
 
 class Model(pl.LightningModule):
@@ -121,15 +140,63 @@ class Model(pl.LightningModule):
         self.log("val_loss", loss, on_epoch=True)
 
     def configure_optimizers(self):
-        optimizer = torch.optim.Adam(self.parameters(), lr=self.cfg.lr)
+        optimizer = Adam(self.parameters(), lr=self.cfg.lr)
         return optimizer
 
 
-    def fitfunc(self, X,y, cfg_params=None):
-        """Same API as fit functions in sklearn: 
-            X [Number_of_points, Number_of_features], 
-            Y [Number_of_points]
+    def fitfunc(self, X,y, cfg_params=None, beam_configs=None):
         """
+        Fit function to perform symbolic regression.
+        Supports multiple beam search configurations for ablation studies.
+        
+        Args:
+            X: Input data.
+            y: Target data.
+            cfg_params: Configuration parameters.
+            beam_configs: List of beam search configurations.
+        
+        Returns:
+            List of outputs for each beam configuration.
+        """
+        if cfg_params is None:
+            raise ValueError("cfg_params must be provided and initialized.")
+
+        if beam_configs is None:
+            beam_configs = [{"beam_size": cfg_params.beam_size, "length_penalty": 1.0, "max_len": self.cfg.length_eq}]
+
+        results = []
+        for config in beam_configs:
+            cfg_params.beam_size = config["beam_size"]
+            cfg_params.length_penalty = config.get("length_penalty", 1.0)
+            cfg_params.max_len = config.get("max_len", self.cfg.length_eq)
+
+            output = self._perform_beam_search(X, y, cfg_params)
+            results.append({"config": config, "output": output})
+
+        return results
+
+    def _perform_beam_search(self, X, y, cfg_params):
+        """
+        Helper function to perform beam search with a single configuration.
+        
+        Args:
+            X: Input data.
+            y: Target data.
+            cfg_params: Configuration parameters.
+        
+        Returns:
+            Output of the beam search.
+        """
+        generated_hyps = BeamHypotheses(
+            cfg_params.beam_size, cfg_params.max_len, cfg_params.length_penalty, early_stopping=False
+        )
+
+        cache = {k: (torch.zeros(1), torch.zeros(1)) for k in range(cfg_params.beam_size)}
+
+        for k in cache.keys():
+            if isinstance(cache[k], tuple):
+                cache[k] = (cache[k][0].clone(), cache[k][1].clone())
+
         X = X
         y = y[:,None]
         
@@ -162,7 +229,9 @@ class Model(pl.LightningModule):
             # trg_indexes = [[1] for i in range(bs*self.beam_size)]
             cache = {"slen": 0}
             # generated = torch.tensor(trg_indexes,device=self.device,dtype=torch.long)
-            generated_hyps = BeamHypotheses(cfg_params.beam_size, self.cfg.length_eq, 1.0, 1)
+            generated_hyps = BeamHypotheses(
+                cfg_params.beam_size, cfg_params.max_len, cfg_params.length_penalty, early_stopping=False
+            )
             done = False 
             # Beam Scores
             beam_scores = torch.zeros(cfg_params.beam_size, device=self.device, dtype=torch.long)
@@ -324,11 +393,11 @@ class Model(pl.LightningModule):
 
 
 if __name__ == "__main__":
-        model = SetTransformer(n_l_enc=2,src_pad_idx=0,trg_pad_idx=0,dim_input=6,output_dim=20,dim_hidden=40,dec_layers=1,num_heads=8,dec_pf_dim=40,dec_dropout=0,length_eq=30,lr=
-            0.001,num_inds=20,ln=True,num_features=10,is_sin_emb=False, bit32=True,norm=False,activation='linear',linear=False,mean=torch.Tensor([1.]),std=torch.Tensor([1.]),input_normalization=False)
-        src_x = torch.rand([2,5,20])
-        src_y = torch.sin(torch.norm(src_x, dim=1)).unsqueeze(1)
-        inp_1 = torch.cat([src_x,src_y], dim=1)
-        inp_2 = torch.randint(0,13,[2,10])
-        batch = (inp_1,inp_2)
-        print(model)
+    model = SetTransformer(
+        dim_input=6,
+        dim_hidden=40,
+        num_heads=8,
+        num_inds=20,
+        num_outputs=10
+    )
+    print(model)
