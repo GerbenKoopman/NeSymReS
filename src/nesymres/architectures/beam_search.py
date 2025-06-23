@@ -1,6 +1,9 @@
 import torch
 
-def generate_beam(env, dec, decoder_args, beam_size, length_penalty, early_stopping, max_len=100):
+
+def generate_beam(
+    env, dec, decoder_args, beam_size, length_penalty, early_stopping, max_len=100
+):
     """
     Decode a sentence given initial start.
     `x`:
@@ -17,9 +20,9 @@ def generate_beam(env, dec, decoder_args, beam_size, length_penalty, early_stopp
     # check inputs
     trg, enc_src, trg_mask, src_mask = decoder_args
     src_enc = enc_src
-    src_len = enc_src 
+    src_len = enc_src
 
-    #assert src_enc.size(0) == src_len.size(0)
+    # assert src_enc.size(0) == src_len.size(0)
     assert beam_size >= 1
 
     # batch size / number of words
@@ -28,20 +31,28 @@ def generate_beam(env, dec, decoder_args, beam_size, length_penalty, early_stopp
     breakpoint()
 
     # expand to beam size the source latent representations / source lengths
-    src_enc = src_enc.unsqueeze(1).expand((bs, beam_size) + src_enc.shape[1:]).contiguous().view((bs * beam_size,) + src_enc.shape[1:])
-    #src_len = src_len.unsqueeze(1).expand(bs, beam_size).contiguous().view(-1)
+    src_enc = (
+        src_enc.unsqueeze(1)
+        .expand((bs, beam_size) + src_enc.shape[1:])
+        .contiguous()
+        .view((bs * beam_size,) + src_enc.shape[1:])
+    )
+    # src_len = src_len.unsqueeze(1).expand(bs, beam_size).contiguous().view(-1)
 
     # generated sentences (batch with beam current hypotheses)
-    #generated = src_len.new(max_len, bs * beam_size)  # upcoming output
-    #generated.fill_(env.pad_index)                   # fill upcoming ouput with <PAD>
-    #generated[0].fill_(env.eos_index)                # we use <EOS> for <BOS> everywhere
+    # generated = src_len.new(max_len, bs * beam_size)  # upcoming output
+    # generated.fill_(env.pad_index)                   # fill upcoming ouput with <PAD>
+    # generated[0].fill_(env.eos_index)                # we use <EOS> for <BOS> everywhere
 
     # generated hypotheses
-    generated_hyps = [BeamHypotheses(beam_size, max_len, length_penalty, early_stopping) for _ in range(bs)]
+    generated_hyps = [
+        BeamHypotheses(beam_size, max_len, length_penalty, early_stopping)
+        for _ in range(bs)
+    ]
 
     # positions
     positions = src_len.new(max_len).long()
-    #positions = torch.arange(max_len, out=positions).unsqueeze(1).expand_as(generated)
+    # positions = torch.arange(max_len, out=positions).unsqueeze(1).expand_as(generated)
 
     # scores for each sentence in the beam
     beam_scores = src_enc.new(bs, beam_size).fill_(0)
@@ -52,13 +63,13 @@ def generate_beam(env, dec, decoder_args, beam_size, length_penalty, early_stopp
     cur_len = 1
 
     # cache compute states
-    cache = {'slen': 0}
+    cache = {"slen": 0}
 
     # done sentences
     done = [False for _ in range(bs)]
     breakpoint()
     while cur_len < max_len:
-        dec(trg[:,:-1], enc_src, trg_mask, src_mask)
+        dec(trg[:, :-1], enc_src, trg_mask, src_mask)
         # compute word scores
         tensor = decoder(
             x=generated[:cur_len],
@@ -67,19 +78,23 @@ def generate_beam(env, dec, decoder_args, beam_size, length_penalty, early_stopp
             causal=True,
             src_enc=src_enc,
             src_len=src_len,
-            cache=cache
+            cache=cache,
         )
         assert tensor.size() == (1, bs * beam_size, env.dim)
-        tensor = tensor.data[-1, :, :]          # (bs * beam_size, dim)
-        scores = env.proj(tensor)              # (bs * beam_size, n_words)
+        tensor = tensor.data[-1, :, :]  # (bs * beam_size, dim)
+        scores = env.proj(tensor)  # (bs * beam_size, n_words)
         scores = F.log_softmax(scores, dim=-1)  # (bs * beam_size, n_words)
         assert scores.size() == (bs * beam_size, n_words)
 
         # select next words with scores
-        _scores = scores + beam_scores[:, None].expand_as(scores)  # (bs * beam_size, n_words)
-        _scores = _scores.view(bs, beam_size * n_words)            # (bs, beam_size * n_words)
+        _scores = scores + beam_scores[:, None].expand_as(
+            scores
+        )  # (bs * beam_size, n_words)
+        _scores = _scores.view(bs, beam_size * n_words)  # (bs, beam_size * n_words)
 
-        next_scores, next_words = torch.topk(_scores, 2 * beam_size, dim=1, largest=True, sorted=True)
+        next_scores, next_words = torch.topk(
+            _scores, 2 * beam_size, dim=1, largest=True, sorted=True
+        )
         assert next_scores.size() == next_words.size() == (bs, 2 * beam_size)
 
         # next batch beam content
@@ -90,9 +105,13 @@ def generate_beam(env, dec, decoder_args, beam_size, length_penalty, early_stopp
         for sent_id in range(bs):
 
             # if we are done with this sentence
-            done[sent_id] = done[sent_id] or generated_hyps[sent_id].is_done(next_scores[sent_id].max().item())
+            done[sent_id] = done[sent_id] or generated_hyps[sent_id].is_done(
+                next_scores[sent_id].max().item()
+            )
             if done[sent_id]:
-                next_batch_beam.extend([(0, env.pad_index, 0)] * beam_size)  # pad the batch
+                next_batch_beam.extend(
+                    [(0, env.pad_index, 0)] * beam_size
+                )  # pad the batch
                 continue
 
             # next sentence beam content
@@ -107,9 +126,16 @@ def generate_beam(env, dec, decoder_args, beam_size, length_penalty, early_stopp
 
                 # end of sentence, or next word
                 if word_id == env.eos_index or cur_len + 1 == max_len:
-                    generated_hyps[sent_id].add(generated[:cur_len, sent_id * beam_size + beam_id].clone().cpu(), value.item())
+                    generated_hyps[sent_id].add(
+                        generated[:cur_len, sent_id * beam_size + beam_id]
+                        .clone()
+                        .cpu(),
+                        value.item(),
+                    )
                 else:
-                    next_sent_beam.append((value, word_id, sent_id * beam_size + beam_id))
+                    next_sent_beam.append(
+                        (value, word_id, sent_id * beam_size + beam_id)
+                    )
 
                 # the beam for next step is full
                 if len(next_sent_beam) == beam_size:
@@ -132,7 +158,7 @@ def generate_beam(env, dec, decoder_args, beam_size, length_penalty, early_stopp
         generated = generated[:, beam_idx]
         generated[cur_len] = beam_words
         for k in cache.keys():
-            if k != 'slen':
+            if k != "slen":
                 cache[k] = (cache[k][0][beam_idx], cache[k][1][beam_idx])
 
         # update current length
@@ -172,13 +198,14 @@ def generate_beam(env, dec, decoder_args, beam_size, length_penalty, early_stopp
     # generate target batch
     decoded = src_len.new(tgt_len.max().item(), bs).fill_(env.pad_index)
     for i, hypo in enumerate(best):
-        decoded[:tgt_len[i] - 1, i] = hypo
+        decoded[: tgt_len[i] - 1, i] = hypo
         decoded[tgt_len[i] - 1, i] = env.eos_index
 
     # sanity check
     assert (decoded == env.eos_index).sum() == 2 * bs
 
     return decoded, tgt_len, generated_hyps
+
 
 class BeamHypotheses(object):
 
@@ -207,7 +234,9 @@ class BeamHypotheses(object):
         if len(self) < self.n_hyp or score > self.worst_score:
             self.hyp.append((score, hyp))
             if len(self) > self.n_hyp:
-                sorted_scores = sorted([(s, idx) for idx, (s, _) in enumerate(self.hyp)])
+                sorted_scores = sorted(
+                    [(s, idx) for idx, (s, _) in enumerate(self.hyp)]
+                )
                 del self.hyp[sorted_scores[0][1]]
                 self.worst_score = sorted_scores[1][0]
             else:
@@ -223,4 +252,7 @@ class BeamHypotheses(object):
         elif self.early_stopping:
             return True
         else:
-            return self.worst_score >= best_sum_logprobs / self.max_len ** self.length_penalty
+            return (
+                self.worst_score
+                >= best_sum_logprobs / self.max_len**self.length_penalty
+            )
