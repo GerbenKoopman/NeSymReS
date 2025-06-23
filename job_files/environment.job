@@ -13,5 +13,7 @@ module load 2024
 module load Anaconda3/2024.06-1
 
 cd $HOME/nesymres/src
-conda env create -f environment.yml
 
+source activate nesymres
+
+pip install .
