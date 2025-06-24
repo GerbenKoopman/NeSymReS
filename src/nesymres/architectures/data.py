@@ -148,14 +148,18 @@ def sample_support(eq, curr_p, cfg):
     sym = []
     if not eq.support:
         distribution =  torch.distributions.Uniform(cfg.fun_support.min,cfg.fun_support.max) #torch.Uniform.distribution_support(cfg.fun_support[0],cfg.fun_support[1])
+        gaussian_noise = torch.distributions.Normal(0.0, cfg.noise.std) # Gaussian 0-mean dist noise. Change noise.std in config to adjust noise levels.
     else:
         raise NotImplementedError
     
     for sy in cfg.total_variables:
         if sy in eq.variables:
             curr = distribution.sample([int(curr_p)])
+            noise = gaussian_noise.sample([int(curr_p)])
+            curr = curr + noise
         else:
             curr = torch.zeros(int(curr_p))
+        
         sym.append(curr)
     return torch.stack(sym)
 
