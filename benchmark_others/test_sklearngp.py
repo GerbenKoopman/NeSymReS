@@ -1,4 +1,4 @@
-from scripts.run_sklearngp import run_sklearngp
+from scripts.run_sklearngp import run_sklearngp,run_sklearngp_noise
 from scripts.bench_utils import generate_dataset
 import pandas as pd
 import yaml
@@ -12,5 +12,8 @@ print(expr)
 with open("benchmark_others/configs/sklearngp.yaml") as f:
     cfg = yaml.safe_load(f)
 
-results = run_sklearngp(X, y, cfg)
-print(results)
+results_no_noise = run_sklearngp(X, y, cfg)
+results_noise = run_sklearngp_noise(X, y, cfg)
+
+print(results_no_noise)
+print(results_noise)
