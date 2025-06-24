@@ -22,5 +22,6 @@ setuptools.setup(
         "wandb",
         "torch",
         "pytorch_lightning",
+        ## For the other models we have to sntall sklearn, gplearn, and the dsr github not sure where to put these intall reqs.
     ],
 )

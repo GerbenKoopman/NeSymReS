@@ -1,0 +1,9 @@
+name: dsr
+method: dsr
+dataset: ../test_set/nc.csv
+
+# from paper:
+entropy_coeff: 0.005    # λ_H 
+risk_factor: 0.05      # ε
+symbol_set: ["add", "sub", "mul", "div", "sin", "cos", "exp", "log", "const"]
+estimate_constants: true

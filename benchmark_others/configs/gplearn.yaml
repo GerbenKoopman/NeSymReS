@@ -1,0 +1,5 @@
+name: gplearn
+method: gplearn
+dataset: ../test_set/nc.csv
+
+population_size: 4096  # paper ranges between 2^10 … 2^15
