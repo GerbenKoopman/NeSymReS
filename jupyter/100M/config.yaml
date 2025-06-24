@@ -118,6 +118,10 @@ beam_search_configs:
     length_penalty: 1.0
     max_len: 150
 
+# Noise level coniguration
+noise:
+  std: 0.1 # Higher value = more noise
+
 # @package _group_
 hydra:
   run:

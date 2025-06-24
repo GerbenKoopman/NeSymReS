@@ -129,6 +129,10 @@ inference:
       length_penalty: 1.2
       max_len: 80
 
+# Noise level coniguration
+noise:
+  std: 0.1 # Higher value = more noise
+
 # @package _group_
 hydra:
   run:
