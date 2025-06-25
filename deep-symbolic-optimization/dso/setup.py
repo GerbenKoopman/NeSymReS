@@ -11,7 +11,7 @@ required = [
     "pytest",
     "cython",
     "numpy<=1.19",
-    "tensorflow== 2.7.4",
+    "tensorflow==1.14",
     "numba==0.53.1",
     "sympy",
     "pandas",
