@@ -10,7 +10,7 @@ from pytorch_lightning.loggers import CSVLogger, TensorBoardLogger
 from omegaconf import DictConfig, OmegaConf
 import time
 
-def create_production_config():
+def create_config():
     cfg = OmegaConf.create({
         "epochs": 20,
         "batch_size": 16,
@@ -117,14 +117,14 @@ def setup_loggers(output_dir):
 
     return loggers
 
-def generate_production_data(train_samples=1000, val_samples=200):
+def generate_data(train_samples=1000, val_samples=200):
     """Generate larger datasets for training"""
 
     print(f"Generating datasets...")
     print(f"  Training samples: {train_samples}")
     print(f"  Validation samples: {val_samples}")
 
-    train_path = Path("data/raw_datasets/train_production")
+    train_path = Path("data/raw_datasets/train")
     train_path.mkdir(parents=True, exist_ok=True)
 
     result = os.system(f"cd scripts/data_creation && python dataset_creation.py {train_samples} ../../{train_path}")
@@ -132,7 +132,7 @@ def generate_production_data(train_samples=1000, val_samples=200):
         print(f"Failed to generate training data")
         return False
 
-    val_path = Path("data/raw_datasets/val_production")
+    val_path = Path("data/raw_datasets/val")
     val_path.mkdir(parents=True, exist_ok=True)
 
     result = os.system(f"cd scripts/data_creation && python dataset_creation.py {val_samples} ../../{val_path}")
@@ -158,17 +158,17 @@ def main():
         print("All imports successful!")
 
         print("\nCreating configuration...")
-        cfg = create_production_config()
+        cfg = create_config()
         print("Configuration created")
 
         timestamp = time.strftime("%Y%m%d_%H%M%S")
-        output_dir = Path(f"experiments/production_training_{timestamp}")
+        output_dir = Path(f"experiments/training_{timestamp}")
         output_dir.mkdir(parents=True, exist_ok=True)
         print(f"Output directory: {output_dir}")
 
         OmegaConf.save(cfg, output_dir / "config.yaml")
 
-        print("\nSetting up production datasets...")
+        print("\nSetting up datasets...")
 
         large_train_path = Path("data/raw_datasets/100")
         large_val_path = Path("data/raw_datasets/50")
@@ -181,7 +181,7 @@ def main():
             val_path = large_val_path
         else:
 
-            result = generate_production_data(1000, 200)
+            result = generate_data(1000, 200)
             if not result:
                 return False
             train_path, val_path = result
@@ -218,7 +218,7 @@ def main():
             devices = 1
             print("Using CPU (consider GPU for faster training)")
 
-        print("\n🏃 Setting up trainer...")
+        print("\nSetting up trainer...")
         trainer = pl.Trainer(
             max_epochs=cfg.epochs,
             precision=cfg.precision,
@@ -239,17 +239,17 @@ def main():
 
         print("\nStarting training...")
         print("\nConfiguration:")
-        print(f"  - Epochs: {cfg.epochs}")
-        print(f"  - Batch size: {cfg.batch_size} (effective: {cfg.batch_size * cfg.accumulate_grad_batches})")
-        print(f"  - Learning rate: {cfg.lr}")
-        print(f"  - Model size: ~{total_params/1e6:.1f}M parameters")
-        print(f"  - Max data points: {cfg.dataset_train.max_number_of_points}")
-        print(f"  - Constants: {cfg.dataset_train.constants.num_constants}")
-        print(f"  - Precision: {cfg.precision}-bit")
-        print(f"  - Accelerator: {accelerator}")
-        print(f"  - Workers: {cfg.num_of_workers}")
-        print(f"  - Validation: Every 0.5 epochs")
-        print(f"  - Early stopping: 5 epochs patience")
+        print(f" - Epochs: {cfg.epochs}")
+        print(f" - Batch size: {cfg.batch_size} (effective: {cfg.batch_size * cfg.accumulate_grad_batches})")
+        print(f" - Learning rate: {cfg.lr}")
+        print(f" - Model size: ~{total_params/1e6:.1f}M parameters")
+        print(f" - Max data points: {cfg.dataset_train.max_number_of_points}")
+        print(f" - Constants: {cfg.dataset_train.constants.num_constants}")
+        print(f" - Precision: {cfg.precision}-bit")
+        print(f" - Accelerator: {accelerator}")
+        print(f" - Workers: {cfg.num_of_workers}")
+        print(f" - Validation: Every 0.5 epochs")
+        print(f" - Early stopping: 5 epochs patience")
 
         print("\n" + "=" * 60)
         print("TRAINING STARTED")
@@ -265,22 +265,22 @@ def main():
         print("=" * 60)
 
         print(f"\nTraining Results:")
-        print(f"  - Total time: {training_time/3600:.2f} hours")
-        print(f"  - Epochs completed: {trainer.current_epoch + 1}")
-        print(f"  - Best model checkpoint: {callbacks[0].best_model_path}")
+        print(f" - Total time: {training_time/3600:.2f} hours")
+        print(f" - Epochs completed: {trainer.current_epoch + 1}")
+        print(f" - Best model checkpoint: {callbacks[0].best_model_path}")
 
         if hasattr(trainer, 'callback_metrics'):
             metrics = trainer.callback_metrics
             if 'train_loss' in metrics:
-                print(f"  - Final training loss: {metrics['train_loss']:.4f}")
+                print(f" - Final training loss: {metrics['train_loss']:.4f}")
             if 'val_loss' in metrics:
-                print(f"  - Final validation loss: {metrics['val_loss']:.4f}")
+                print(f" - Final validation loss: {metrics['val_loss']:.4f}")
 
         print(f"\nResults saved to: {output_dir}")
-        print(f"  - Model checkpoints: {output_dir}/checkpoints/")
-        print(f"  - Training logs: {output_dir}/logs/")
-        print(f"  - TensorBoard logs: {output_dir}/tensorboard/")
-        print(f"  - Configuration: {output_dir}/config.yaml")
+        print(f" - Model checkpoints: {output_dir}/checkpoints/")
+        print(f" - Training logs: {output_dir}/logs/")
+        print(f" - TensorBoard logs: {output_dir}/tensorboard/")
+        print(f" - Configuration: {output_dir}/config.yaml")
 
         print("\nTraining completed successfully!")
         print("Model is ready for inference and evaluation")
