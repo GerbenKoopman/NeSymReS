@@ -1,0 +1,2 @@
+,eq,support,num_points
+0,-x_1 + log(x_1 + x_2**4),"{'x_1': {'max': 10, 'min': -10}, 'x_2': {'max': 10, 'min': -10}}",500

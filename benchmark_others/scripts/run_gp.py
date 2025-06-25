@@ -27,13 +27,20 @@ def run_gp(X, y, cfg):
     model.fit(X, y)
     preds = model.predict(X)
     mse = np.mean((y - preds)**2)
-    return mse, model._program.__str__()
+
+    is_close = np.isclose(y, preds, rtol=0.05, atol=1e-3)
+    accuracy = np.mean(is_close)
+    if accuracy >= 0.95:
+        correct = True
+    else:
+        correct = False
+
+    return mse, model._program.__str__(), correct
 
 
 def run_gp_noise(X, y, cfg):
 
     noise = np.random.normal(loc=0.0, scale=cfg["noise"]["std"], size=y.shape)
-    
     y = y + noise
 
     from gplearn.genetic import SymbolicRegressor
@@ -61,4 +68,12 @@ def run_gp_noise(X, y, cfg):
     model.fit(X, y)
     preds = model.predict(X)
     mse = np.mean((y - preds)**2)
-    return mse, model._program.__str__()
+
+    is_close = np.isclose(y, preds, rtol=0.05, atol=1e-3)
+    accuracy = np.mean(is_close)
+    if accuracy >= 0.95:
+        correct = True
+    else:
+        correct = False
+
+    return mse, model._program.__str__(), correct
