@@ -1,6 +1,5 @@
 name: gplearn
 method: gplearn
-dataset: ../test_set/nc.csv
 
 noise:
   std: 0.1

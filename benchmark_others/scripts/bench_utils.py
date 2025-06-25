@@ -24,9 +24,10 @@ def generate_dataset(row):
     expr = sympify(expr_str)
     func = lambdify(sym_vars, expr, modules="numpy")
 
+    # Resample until 500
     X_list, y_list = [], []
     while sum(len(a) for a in y_list) < num_points:
-        batch = max(num_points, 1000)
+        batch = num_points
         Xb = np.stack([
             np.random.uniform(support[var]["min"], support[var]["max"], size=batch)
             for var in variables
@@ -39,4 +40,41 @@ def generate_dataset(row):
     X_all = np.concatenate(X_list)[:num_points]
     y_all = np.concatenate(y_list)[:num_points]
     
-    return X_all, y_all, expr_str   
+    return X_all, y_all, expr_str
+
+def generate_dataset_test(row):
+    expr_str = row["eq"]
+    support = ast.literal_eval(row["support"])
+    num_points = 10000
+    
+    # Get sorted variable names
+    variables = sorted(support.keys())
+    sym_vars = symbols(variables)
+
+    # Sample input X
+    X = np.stack([
+        np.random.uniform(support[var]["min"], support[var]["max"], size=num_points)
+        for var in variables
+    ], axis=1)
+
+    # Convert expression to function
+    expr = sympify(expr_str)
+    func = lambdify(sym_vars, expr, modules="numpy")
+
+    # Resample until 10000
+    X_list, y_list = [], []
+    while sum(len(a) for a in y_list) < num_points:
+        batch = num_points
+        Xb = np.stack([
+            np.random.uniform(support[var]["min"], support[var]["max"], size=batch)
+            for var in variables
+        ], axis=1)
+        yb = func(*[Xb[:, i] for i in range(Xb.shape[1])])
+        mask = np.isfinite(yb)
+        X_list.append(Xb[mask])
+        y_list.append(yb[mask])
+
+    X_all = np.concatenate(X_list)[:num_points]
+    y_all = np.concatenate(y_list)[:num_points]
+    
+    return X_all, y_all, expr_str

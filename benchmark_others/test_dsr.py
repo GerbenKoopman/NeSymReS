@@ -5,14 +5,15 @@ import yaml
 
 df = pd.read_csv("test_set/nc.csv")
 
-X, y, expr = generate_dataset(df.iloc[100])
+X_train, y_train, expr = generate_dataset(df.iloc[100])
+X_test, y_test, _ = generate_dataset(df.iloc[100])
 
 
 with open("benchmark_others/configs/dsr.json") as f:
     cfg = yaml.safe_load(f)
 
-results_no_noise = run_dsr(X, y, cfg)
-#results_noise = run_gp_noise(X, y, cfg)
+results_no_noise = run_dsr(X_train, y_train, X_test, y_test, cfg)
+#results_noise = run_gp_noise(X_train, y_train, X_test, y_test, cfg)
 
 print(results_no_noise)
 #print(results_noise)

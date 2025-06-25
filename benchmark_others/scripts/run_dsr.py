@@ -1,21 +1,56 @@
 import numpy as np
+import tempfile
+import json
+import numpy as np
+from dso import DeepSymbolicRegressor
 
 
-def run_dsr(X, y, cfg):
-    from dso import DeepSymbolicRegressor as DSR
+def run_dsr(X_train,
+            y_train,
+            X_test,
+            y_test):
 
-    model = DSR(cfg)
+    # Create a temporary JSON config file
+    config = {
+        "task": {
+            "task_type": "regression",
+            "dataset": None,
+            "function_set": ["add","sub","mul","div","sin","cos","exp","log", "const"],
+        },
 
-    model.fit(X, y)
+        "policy_optimizer" : {
+            "learning_rate" : 0.0005,
+            "entropy_weight" : 0.005,
+            "entropy_gamma" : 0.7
 
-    preds = model.predict(X)
-    mse   = float(np.mean((y - preds) ** 2))
+        }
+    }
 
-    expr = model.program_.pretty()
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as tmp:
+        json.dump(config, tmp)
+        tmp_path = tmp.name
 
-    is_close = np.isclose(y, preds, rtol=0.05, atol=1e-3)
-    accuracy = np.mean(is_close)
-    if accuracy >= 0.95:
-        correct = True
+    try:
+        model = DeepSymbolicRegressor(config_dict=tmp_path)
 
-    return mse, expr, correct
+        model.fit(X_train, y_train)
+
+        preds = model.predict(X_test)
+        mse = np.mean((y_test - preds)**2)
+
+        is_close = np.isclose(y_test, preds, rtol=0.05, atol=1e-3)
+        accuracy = np.mean(is_close)
+        if accuracy >= 0.95:
+            correct = True
+        else:
+            correct = False
+    
+    finally:
+        # Clean up temp config file
+        try:
+            import os
+            os.remove(tmp_path)
+        except OSError:
+            pass
+
+    return mse, model.program_.pretty(), correct

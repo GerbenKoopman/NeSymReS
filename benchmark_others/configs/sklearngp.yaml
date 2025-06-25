@@ -1,8 +1,8 @@
-name: gp_regression
+name: sklearngp
 method: gaussian_process
 dataset: ../test_set/nc.csv
 
 noise:
   std: 0.1
 
-n_restarts_optimizer: 8 ## paper runs with 8, 16, 32
+n_restarts_optimizer: 16 ## paper runs with 8, 16, 32
