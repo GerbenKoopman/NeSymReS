@@ -158,7 +158,11 @@ def bfgs(pred_str, X, y, cfg):
             funcs.append(final)
         
         values = {x:X[:,:,idx].cpu() for idx, x in enumerate(cfg.total_variables)} #CHECK ME
-        y_found = sp.lambdify(",".join(cfg.total_variables), final, modules=['numpy', {'ln': np.log}])(**values)
+        y_found = sp.lambdify(
+            ",".join(cfg.total_variables),
+            final,
+            modules=['numpy', {'ln': np.log, 'asin': np.arcsin, 'acos': np.arccos, 'tan': np.tan}]
+        )(**values)
         final_loss = np.mean(np.square(y_found-y.cpu()).numpy())
         F_loss.append(final_loss)
 
