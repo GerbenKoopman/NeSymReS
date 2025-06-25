@@ -53,12 +53,12 @@ def create_production_config():
         "num_hidden_layer_decoder": 3,
         
         "dataset_train": {
-            "max_number_of_points": 800,  
+            "max_number_of_points": 500,  
             "type_of_sampling_points": "logarithm",
             "predict_c": True,
-            "fun_support": {"max": 20, "min": -20},  
+            "fun_support": {"max": 10, "min": -10},  
             "constants": {
-                "num_constants": 5,  
+                "num_constants": 3,  
                 "additive": {"max": 5, "min": -5},
                 "multiplicative": {"max": 3, "min": -3}
             }
