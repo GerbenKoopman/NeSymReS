@@ -15,6 +15,7 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 import sympy as sp
+from sympy.functions import ln
 from dataclasses import dataclass
 from ..dataset.generator import Generator
 from . import data
@@ -157,7 +158,7 @@ def bfgs(pred_str, X, y, cfg):
             funcs.append(final)
         
         values = {x:X[:,:,idx].cpu() for idx, x in enumerate(cfg.total_variables)} #CHECK ME
-        y_found = sp.lambdify(",".join(cfg.total_variables), final)(**values)
+        y_found = sp.lambdify(",".join(cfg.total_variables), final, modules=['numpy', {'ln': np.log}])(**values)
         final_loss = np.mean(np.square(y_found-y.cpu()).numpy())
         F_loss.append(final_loss)
 
