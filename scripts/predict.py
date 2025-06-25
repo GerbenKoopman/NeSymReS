@@ -23,18 +23,14 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input_file', '-i', type=str, default='/home/cezary/Projects/IEiAI/test_set/nc.csv')
     parser.add_argument('--output_dir', '-o', type=str, default='/home/cezary/Projects/IEiAI/test_results/')
-    
+    parser.add_argument('--num_equations', type=int, default=5)
+    parser.add_argument('--model_ckpt', '-m', type=str, default='/home/cezary/Projects/IEiAI/weights/100M.ckpt')
+    parser.add_argument('--model_conf', '-c', type=str, default='/home/cezary/Projects/IEiAI/jupyter/100M/config.yaml')
+    parser.add_argument('--eq_setting', '-e', type=str, default='/home/cezary/Projects/IEiAI/jupyter/100M/eq_setting.json')
     # parser.add_argument('--model_ckpt', '-m', type=str, default='/home/cezary/Projects/IEiAI-NeSymReS/weights/10M.ckpt')
     # parser.add_argument('--model_conf', '-c', type=str, default='/home/cezary/Projects/IEiAI-NeSymReS/jupyter/10MPaper/config.yaml')
     # parser.add_argument('--eq_setting', '-e', type=str, default='/home/cezary/Projects/IEiAI-NeSymReS/jupyter/10MPaper/equation_config.json')
 
-    parser.add_argument('--model_ckpt', '-m', type=str, default='/home/cezary/Projects/IEiAI/weights/100M.ckpt')
-    parser.add_argument('--model_conf', '-c', type=str, default='/home/cezary/Projects/IEiAI/jupyter/100M/config.yaml')
-    parser.add_argument('--eq_setting', '-e', type=str, default='/home/cezary/Projects/IEiAI/jupyter/100M/eq_setting.json')
-
-    parser.add_argument('--num_equations', type=int, default=20)
-    # parser.add_argument('--num_points_pred', type=int, default=500)
-    # parser.add_argument('--num_points_eval', type=int, default=10000)
     return parser.parse_args()
 
 
@@ -134,6 +130,8 @@ def main():
 
     preds = predict(args)
     print(preds)
+
+    os.makedirs(args.output_dir, exist_ok=True)
     preds.to_csv(os.path.join(args.output_dir, 'pred_nesymres.csv'))
 
 
