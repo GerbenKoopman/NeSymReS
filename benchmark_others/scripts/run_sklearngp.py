@@ -25,6 +25,7 @@ def run_sklearngp(X_train, y_train, X_test, y_test, cfg):
     return mse, None, correct
 
 
+
 def run_sklearngp_noise(X_train, y_train, X_test, y_test, cfg):
     from sklearn.gaussian_process import GaussianProcessRegressor
     from sklearn.gaussian_process.kernels import ConstantKernel, RBF

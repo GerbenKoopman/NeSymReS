@@ -1,28 +1,22 @@
 import yaml
 import pandas as pd
 
-from scripts.run_gp import run_gp, run_gp_noise
-from scripts.run_sklearngp import run_sklearngp, run_sklearngp_noise
+from scripts.run_dsr import run_dsr, run_dsr_noise
 from scripts.bench_utils import generate_dataset, generate_dataset_test
 
 
-def bench_all(path_to_test_set):
+def bench_dsr(path_to_test_set):
     df = pd.read_csv(path_to_test_set)
 
-    # Respective config files
-    gp_cfg    = yaml.safe_load(open("benchmark_others/configs/gplearn.yaml"))
-    skgp_cfg  = yaml.safe_load(open("benchmark_others/configs/sklearngp.yaml"))
-
     methods = [
-        ("gplearn",       run_gp,        gp_cfg),
-        ("sklearngp",     run_sklearngp, skgp_cfg),
+        ("dsr",       run_dsr),
     ]
 
     accuracy_records = []
     detailed_results = {}
 
     # Loop for running each method
-    for name, fn, cfg in methods:
+    for name, fn in methods:
         per_eq = {}
         correct_flags = []
 
@@ -30,7 +24,7 @@ def bench_all(path_to_test_set):
             X_train, y_train, _ = generate_dataset(row)
             X_test, y_test, _ = generate_dataset_test(row)
 
-            mse, pred_expr, correct = fn(X_train, y_train, X_test, y_test, cfg)
+            mse, pred_expr, correct = fn(X_train, y_train, X_test, y_test)
 
             per_eq[row["eq"]] = {
                 "mse":            mse,
@@ -55,21 +49,17 @@ def bench_all(path_to_test_set):
 
 
 
-def bench_all_noise(path_to_test_set):
+def bench_dsr_noise(path_to_test_set):
     df = pd.read_csv(path_to_test_set)
 
-    gp_cfg    = yaml.safe_load(open("benchmark_others/configs/gplearn.yaml"))
-    skgp_cfg  = yaml.safe_load(open("benchmark_others/configs/sklearngp.yaml"))
-
     methods = [
-        ("gplearn",       run_gp_noise,        gp_cfg),
-        ("sklearngp",     run_sklearngp_noise, skgp_cfg),
+        ("dsr",       run_dsr_noise),
     ]
 
     accuracy_records = []
     detailed_results = {}
 
-    for name, fn, cfg in methods:
+    for name, fn in methods:
         per_eq = {}
         correct_flags = []
 
@@ -77,7 +67,7 @@ def bench_all_noise(path_to_test_set):
             X_train, y_train, _ = generate_dataset(row)
             X_test, y_test, _ = generate_dataset_test(row)
 
-            mse, pred_expr, correct = fn(X_train, y_train, X_test, y_test, cfg)
+            mse, pred_expr, correct = fn(X_train, y_train, X_test, y_test)
 
             per_eq[row["eq"]] = {
                 "mse":            mse,

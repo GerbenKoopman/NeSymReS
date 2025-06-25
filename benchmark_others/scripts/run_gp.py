@@ -38,6 +38,7 @@ def run_gp(X_train, y_train, X_test, y_test, cfg):
     return mse, model._program.__str__(), correct
 
 
+
 def run_gp_noise(X_train, y_train, X_test, y_test, cfg):
 
     noise = np.random.normal(loc=0.0, scale=cfg["noise"]["std"], size=y_test.shape)
