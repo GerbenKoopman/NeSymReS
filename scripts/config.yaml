@@ -114,6 +114,33 @@ architecture:
   activation_token: 7
   positional_embedding_num: 20
   
+  # SetEncoder parameters (required)
+  linear: False
+  bit16: True
+  norm: True
+  mean: 0.5
+  std: 0.5
+  activation: "relu"
+  input_normalization: False
+  dim_input: 4
+  dim_hidden: 512
+  num_heads: 8
+  num_inds: 50
+  ln: True
+  n_l_enc: 5
+  num_features: 10
+  
+  # Model parameters (required)
+  sinuisodal_embeddings: False
+  trg_pad_idx: 0
+  src_pad_idx: 0
+  output_dim: 60
+  length_eq: 60
+  dec_pf_dim: 512
+  dec_layers: 5
+  dropout: 0.0
+  lr: 0.0001
+  
   encoder:
     num_encoder_layer: 8
     hidden_size: 512

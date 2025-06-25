@@ -96,6 +96,15 @@ class NesymresDataset(data.Dataset):
 
 def custom_collate_fn(eqs: List[Equation], cfg) -> List[torch.tensor]:
     filtered_eqs = [eq for eq in eqs if eq.valid]
+    
+    # Handle empty filtered equations
+    if not filtered_eqs or len(filtered_eqs) == 0:
+        print("Warning: No valid equations in batch, returning empty tensors")
+        # Return empty tensors with correct structure
+        dummy_tensor = torch.zeros((0, 4, 1))
+        dummy_tokens = torch.zeros((0, 1), dtype=torch.long)
+        return dummy_tensor, dummy_tokens, []
+    
     res, tokens = evaluate_and_wrap(filtered_eqs, cfg)
     return res, tokens, [eq.expr for eq in filtered_eqs]
 
@@ -206,6 +215,15 @@ def evaluate_and_wrap(eqs: List[Equation], cfg):
             cond0.append(False)
         # except:
         #     breakpoint()
+    
+    # Handle case where all equations are invalid
+    if not vals or len(vals) == 0:
+        print(f"Warning: All {len(eqs)} equations in batch were invalid, returning empty tensors")
+        # Return minimal dummy tensors
+        dummy_tensor = torch.zeros((0, 4, 1))
+        dummy_tokens = torch.zeros((0, 1), dtype=torch.long)
+        return dummy_tensor, dummy_tokens
+    
     tokens_eqs = tokens_eqs[cond0]
     num_tensors = torch.cat(vals, axis=0)
     cond = (

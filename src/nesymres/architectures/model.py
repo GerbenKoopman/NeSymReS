@@ -129,12 +129,22 @@ class Model(pl.LightningModule):
         return loss
 
     def training_step(self, batch, _):
+        # Handle empty batches gracefully
+        if len(batch) < 2 or batch[0].numel() == 0 or batch[1].numel() == 0:
+            # Return a dummy loss for empty batches
+            return torch.tensor(0.0, requires_grad=True)
+        
         output, trg = self.forward(batch)
         loss = self.compute_loss(output,trg)
         self.log("train_loss", loss, on_epoch=True)
         return loss
 
     def validation_step(self, batch, _):
+        # Handle empty batches gracefully
+        if len(batch) < 2 or batch[0].numel() == 0 or batch[1].numel() == 0:
+            # Return a dummy loss for empty batches
+            return torch.tensor(0.0, requires_grad=True)
+        
         output, trg = self.forward(batch)
         loss = self.compute_loss(output,trg)
         self.log("val_loss", loss, on_epoch=True)

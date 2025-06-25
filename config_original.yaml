@@ -1,23 +1,25 @@
-train_path: data/datasets/10000000
-val_path: data/validation
+# Original NESYMRES Configuration
+# This is the original configuration format before wrapper integration
 
-raw_test_path: data/raw_datasets/150
-test_path: data/validation
-model_path: /local/home/lbiggio/NeuralSymbolicRegressionThatScales/weights/10MCompleted.ckpt  
+# Data paths - use available datasets
+train_path: data/raw_datasets/100
+val_path: data/raw_datasets/50
 
-wandb: True
+# Basic training parameters
+wandb: False  # Disable wandb for original training demo
 wandb_project: "nesymres"
-num_of_workers: 28
-batch_size: 25
-epochs: 20
+num_of_workers: 4
+batch_size: 8  # Smaller batch size for local training
+epochs: 3      # Short training for demonstration
 val_check_interval: 1.0
-precision: 16
-gpu: 8
+precision: 32  # Use 32-bit for stability
+gpu: 0        # Single GPU or 0 for CPU
 
+# Dataset configurations
 dataset_train:
-  total_variables: #Do not fill
-  total_coefficients: #Do not fill
-  max_number_of_points: 800  #2000 before
+  total_variables: #Do not fill - populated automatically
+  total_coefficients: #Do not fill - populated automatically
+  max_number_of_points: 400  # Reduced for faster training
   type_of_sampling_points: logarithm
   predict_c: True
   fun_support:
@@ -35,7 +37,7 @@ dataset_train:
 dataset_val:
   total_variables: #Do not fill
   total_coefficients: #Do not fill
-  max_number_of_points: 500
+  max_number_of_points: 200
   type_of_sampling_points: constant
   predict_c: True
   fun_support:
@@ -53,7 +55,7 @@ dataset_val:
 dataset_test:
   total_variables: #Do not fill
   total_coefficients: #Do not fill
-  max_number_of_points: 500
+  max_number_of_points: 200
   type_of_sampling_points: constant
   predict_c: False
   fun_support:
@@ -68,11 +70,12 @@ dataset_test:
       max: 5
       min: 0.1
 
+# Model architecture - original NESYMRES parameters
 architecture:
   sinuisodal_embeddings: False
   dec_pf_dim: 512
   dec_layers: 5
-  dim_hidden: 512 #512
+  dim_hidden: 512
   lr: 0.0001
   dropout: 0
   num_features: 10
@@ -94,6 +97,7 @@ architecture:
   num_heads: 8
   output_dim: 60
 
+# Inference configuration (for evaluation)
 inference:
   beam_configs:
     - beam_size: 1
@@ -117,19 +121,7 @@ inference:
     normalization_type: MSE
     stop_time: 1e9
 
-  # Added beam search configurations for ablation study
-  beam_search_configs:
-    - beam_size: 5
-      length_penalty: 1.0
-      max_len: 100
-    - beam_size: 10
-      length_penalty: 0.8
-      max_len: 150
-    - beam_size: 3
-      length_penalty: 1.2
-      max_len: 80
-
-# @package _group_
+# Hydra configuration for output directory structure
 hydra:
   run:
     dir: run/${dataset_train.predict_c}/${now:%Y-%m-%d}/${now:%H-%M-%S}
