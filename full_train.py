@@ -14,12 +14,10 @@ def create_production_config():
     cfg = OmegaConf.create({
         "epochs": 20,
         "batch_size": 16,  
-        "num_of_workers": 4,  -worker data loading
+        "num_of_workers": 4,
         "precision": 16,  
         "gradient_clip_val": 1.0,
-        "accumulate_grad_batches": 2,  : 32
-        
-        (as expected by model)
+        "accumulate_grad_batches": 2,
         "num_of_points": 800,  
         "activation_name": "gelu",
         "activation_token": 7,
