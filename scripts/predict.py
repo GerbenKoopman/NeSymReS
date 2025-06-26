@@ -257,7 +257,11 @@ def main():
             os.path.join(args.output_dir, 'noise', f'pred_nesymres_{num_equations}_{std:.5f}.csv'),
             index=False,
         )
-        np.savez_compressed(f'point_{num_equations}_{std}.npz', X=X, y=y)
+        os.makedirs('results/train_points/', exist_ok=True)
+        np.savez_compressed(
+            os.path.join('results/train_points/', f'train_{num_equations}_{std}.npz'),
+            X=X, y=y,
+        )
 
 
 if __name__ == '__main__':
