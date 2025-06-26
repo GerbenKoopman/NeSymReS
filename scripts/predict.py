@@ -216,7 +216,7 @@ def predict(args, noise_std):
         }
         eq_gplearn = sp.sympify(model_gp._program.__str__(), locals=converter)
         expr_gplearn = (
-            model_gp._program.__str__()
+            str(eq_gplearn)
             .replace('X0', 'x_0')
             .replace('X1', 'x_1')
             .replace('X2', 'x_2')
