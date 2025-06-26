@@ -1,0 +1,212 @@
+[
+  {
+    "equation_idx": 0,
+    "ground_truth": "-x_1 + log(x_1 + x_2**4)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 1, 'length_penalty': 1.0, 'max_len': 50}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 0,
+    "ground_truth": "-x_1 + log(x_1 + x_2**4)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 3, 'length_penalty': 1.0, 'max_len': 75}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 0,
+    "ground_truth": "-x_1 + log(x_1 + x_2**4)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 1,
+    "ground_truth": "sin(x_3) + sin(x_3/(x_1 - x_2))",
+    "predicted": "",
+    "beam_config": "{'beam_size': 1, 'length_penalty': 1.0, 'max_len': 50}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 1,
+    "ground_truth": "sin(x_3) + sin(x_3/(x_1 - x_2))",
+    "predicted": "",
+    "beam_config": "{'beam_size': 3, 'length_penalty': 1.0, 'max_len': 75}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 1,
+    "ground_truth": "sin(x_3) + sin(x_3/(x_1 - x_2))",
+    "predicted": "",
+    "beam_config": "{'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 2,
+    "ground_truth": "x_2*cos(x_1*x_3 - x_2) - 1",
+    "predicted": "",
+    "beam_config": "{'beam_size': 1, 'length_penalty': 1.0, 'max_len': 50}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 2,
+    "ground_truth": "x_2*cos(x_1*x_3 - x_2) - 1",
+    "predicted": "",
+    "beam_config": "{'beam_size': 3, 'length_penalty': 1.0, 'max_len': 75}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 2,
+    "ground_truth": "x_2*cos(x_1*x_3 - x_2) - 1",
+    "predicted": "",
+    "beam_config": "{'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 3,
+    "ground_truth": "x_2 + tan(x_1 - 1/(x_1 - 1))",
+    "predicted": "",
+    "beam_config": "{'beam_size': 1, 'length_penalty': 1.0, 'max_len': 50}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 3,
+    "ground_truth": "x_2 + tan(x_1 - 1/(x_1 - 1))",
+    "predicted": "",
+    "beam_config": "{'beam_size': 3, 'length_penalty': 1.0, 'max_len': 75}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 3,
+    "ground_truth": "x_2 + tan(x_1 - 1/(x_1 - 1))",
+    "predicted": "",
+    "beam_config": "{'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 4,
+    "ground_truth": "x_1 - x_2**2 - log(x_2)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 1, 'length_penalty': 1.0, 'max_len': 50}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 4,
+    "ground_truth": "x_1 - x_2**2 - log(x_2)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 3, 'length_penalty': 1.0, 'max_len': 75}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 4,
+    "ground_truth": "x_1 - x_2**2 - log(x_2)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 5,
+    "ground_truth": "x_1 - tan(exp(x_1 - 1))",
+    "predicted": "",
+    "beam_config": "{'beam_size': 1, 'length_penalty': 1.0, 'max_len': 50}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 5,
+    "ground_truth": "x_1 - tan(exp(x_1 - 1))",
+    "predicted": "",
+    "beam_config": "{'beam_size': 3, 'length_penalty': 1.0, 'max_len': 75}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 5,
+    "ground_truth": "x_1 - tan(exp(x_1 - 1))",
+    "predicted": "",
+    "beam_config": "{'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 6,
+    "ground_truth": "x_1*(x_1 + 1)/(x_1 - 1)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 1, 'length_penalty': 1.0, 'max_len': 50}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 6,
+    "ground_truth": "x_1*(x_1 + 1)/(x_1 - 1)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 3, 'length_penalty': 1.0, 'max_len': 75}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 6,
+    "ground_truth": "x_1*(x_1 + 1)/(x_1 - 1)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 7,
+    "ground_truth": "x_1*x_3/(-x_1 + x_2) - x_3",
+    "predicted": "",
+    "beam_config": "{'beam_size': 1, 'length_penalty': 1.0, 'max_len': 50}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 7,
+    "ground_truth": "x_1*x_3/(-x_1 + x_2) - x_3",
+    "predicted": "",
+    "beam_config": "{'beam_size': 3, 'length_penalty': 1.0, 'max_len': 75}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 7,
+    "ground_truth": "x_1*x_3/(-x_1 + x_2) - x_3",
+    "predicted": "",
+    "beam_config": "{'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 8,
+    "ground_truth": "tan(x_2 + x_3)/(-x_1 - 1)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 1, 'length_penalty': 1.0, 'max_len': 50}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 8,
+    "ground_truth": "tan(x_2 + x_3)/(-x_1 - 1)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 3, 'length_penalty': 1.0, 'max_len': 75}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 8,
+    "ground_truth": "tan(x_2 + x_3)/(-x_1 - 1)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 9,
+    "ground_truth": "x_1 + cos(x_1 - x_2*x_3)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 1, 'length_penalty': 1.0, 'max_len': 50}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 9,
+    "ground_truth": "x_1 + cos(x_1 - x_2*x_3)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 3, 'length_penalty': 1.0, 'max_len': 75}",
+    "error": "'F'"
+  },
+  {
+    "equation_idx": 9,
+    "ground_truth": "x_1 + cos(x_1 - x_2*x_3)",
+    "predicted": "",
+    "beam_config": "{'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}",
+    "error": "'F'"
+  }
+]

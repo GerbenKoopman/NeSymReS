@@ -1,0 +1,40 @@
+{
+  "equation_idx": 0,
+  "expression": "c*x_3*(x_3 + exp(x_2)) + x_1",
+  "data_shape": {
+    "X": [
+      3,
+      196
+    ],
+    "y": [
+      1,
+      196
+    ]
+  },
+  "beam_results": [
+    {
+      "config": "{'beam_size': 1, 'length_penalty': 1.0, 'max_len': 50}",
+      "error": "",
+      "elapsed_time": null,
+      "output": null
+    },
+    {
+      "config": "{'beam_size': 3, 'length_penalty': 1.0, 'max_len': 75}",
+      "error": "",
+      "elapsed_time": null,
+      "output": null
+    },
+    {
+      "config": "{'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}",
+      "error": "",
+      "elapsed_time": null,
+      "output": null
+    },
+    {
+      "config": "{'beam_size': 10, 'length_penalty': 1.0, 'max_len': 150}",
+      "error": "",
+      "elapsed_time": null,
+      "output": null
+    }
+  ]
+}

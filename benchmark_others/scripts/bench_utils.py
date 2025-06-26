@@ -3,7 +3,7 @@ import numpy as np
 import ast
 from sympy import symbols, lambdify, sympify
 
-df = pd.read_csv("test_set/nc.csv")
+df = pd.read_csv("/home/scur1229/nesymres/test_set/nc.csv")
 
 def generate_dataset(row):
     expr_str = row["eq"]

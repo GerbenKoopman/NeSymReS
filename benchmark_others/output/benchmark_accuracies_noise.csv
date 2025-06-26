@@ -1,0 +1,7 @@
+index,method,expr_true,expr_pred,mse,correct
+0,gplearn,-x_1 + log(x_1 + x_2**4),-x_0 + log(-x_1) + log(sqrt(x_1**2 + sqrt(-x_0 + log(x_1) + log(x_1**2)) - log(x_1))) + log(0.117505853830044*x_0 + x_1**2 - 0.117505853830044*log(x_1) + x_1**(-2)),0.21482381656439015,False
+1,gplearn,sin(x_3) + sin(x_3/(x_1 - x_2)),sin(x_2),0.4150453581863943,False
+2,gplearn,x_2*cos(x_1*x_3 - x_2) - 1,sin(x_1/x_2) - cos(sin(cos(x_0)))/sin(exp(sin(exp(x_1/x_2)))),17.266104290005266,False
+0,sklearngp,-x_1 + log(x_1 + x_2**4),,0.04270595615540036,False
+1,sklearngp,sin(x_3) + sin(x_3/(x_1 - x_2)),,0.3503556227910927,False
+2,sklearngp,x_2*cos(x_1*x_3 - x_2) - 1,,17.570146875779297,False

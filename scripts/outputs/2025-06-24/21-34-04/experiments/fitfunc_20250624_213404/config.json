@@ -1,0 +1,279 @@
+{
+  "train_path": "data/datasets/10000000",
+  "val_path": "data/validation",
+  "raw_test_path": "data/raw_datasets/150",
+  "test_path": "/home/scur1229/nesymres/data/raw_datasets/150",
+  "model_path": "/home/scur1229/nesymres/weights/100M.ckpt",
+  "wandb": true,
+  "wandb_project": "nesymres",
+  "num_of_workers": 28,
+  "batch_size": 25,
+  "epochs": 20,
+  "val_check_interval": 1.0,
+  "precision": 16,
+  "gpu": 8,
+  "random_seed": 42,
+  "output_dir": "experiments",
+  "experiment_name": "default",
+  "enable_checkpointing": true,
+  "save_top_k": 3,
+  "early_stopping_patience": 10,
+  "early_stopping_min_delta": 0.001,
+  "log_every_n_steps": 50,
+  "gradient_clip_val": 1.0,
+  "accumulate_grad_batches": 1,
+  "resume_from_checkpoint": null,
+  "logging": {
+    "tensorboard": true,
+    "wandb": {
+      "enabled": true,
+      "project": "nesymres",
+      "tags": [
+        "default",
+        "unified"
+      ]
+    }
+  },
+  "dataset_train": {
+    "total_variables": null,
+    "total_coefficients": null,
+    "max_number_of_points": 800,
+    "type_of_sampling_points": "logarithm",
+    "predict_c": true,
+    "fun_support": {
+      "max": 10,
+      "min": -10
+    },
+    "constants": {
+      "num_constants": 3,
+      "additive": {
+        "max": 2,
+        "min": -2
+      },
+      "multiplicative": {
+        "max": 2,
+        "min": -2
+      }
+    }
+  },
+  "dataset_val": {
+    "total_variables": null,
+    "total_coefficients": null,
+    "max_number_of_points": 500,
+    "type_of_sampling_points": "constant",
+    "predict_c": true,
+    "fun_support": {
+      "max": 10,
+      "min": -10
+    },
+    "constants": {
+      "num_constants": 3,
+      "additive": {
+        "max": 2,
+        "min": -2
+      },
+      "multiplicative": {
+        "max": 5,
+        "min": -5
+      }
+    }
+  },
+  "dataset_test": {
+    "total_variables": null,
+    "total_coefficients": null,
+    "max_number_of_points": 200,
+    "type_of_sampling_points": "constant",
+    "predict_c": true,
+    "fun_support": {
+      "max": 10,
+      "min": -10
+    },
+    "constants": {
+      "num_constants": 3,
+      "additive": {
+        "max": 2,
+        "min": -2
+      },
+      "multiplicative": {
+        "max": 2,
+        "min": -2
+      }
+    }
+  },
+  "data": {
+    "train_path": "data/datasets/10000000",
+    "val_path": "data/validation",
+    "test_path": "/home/scur1229/nesymres/data/raw_datasets/150",
+    "num_workers": 28,
+    "batch_size": 25,
+    "dataset_train": {
+      "total_variables": null,
+      "total_coefficients": null,
+      "max_number_of_points": 800,
+      "type_of_sampling_points": "logarithm",
+      "predict_c": true,
+      "fun_support": {
+        "max": 10,
+        "min": -10
+      },
+      "constants": {
+        "num_constants": 3,
+        "additive": {
+          "max": 2,
+          "min": -2
+        },
+        "multiplicative": {
+          "max": 2,
+          "min": -2
+        }
+      }
+    },
+    "dataset_val": {
+      "total_variables": null,
+      "total_coefficients": null,
+      "max_number_of_points": 500,
+      "type_of_sampling_points": "constant",
+      "predict_c": true,
+      "fun_support": {
+        "max": 10,
+        "min": -10
+      },
+      "constants": {
+        "num_constants": 3,
+        "additive": {
+          "max": 2,
+          "min": -2
+        },
+        "multiplicative": {
+          "max": 5,
+          "min": -5
+        }
+      }
+    },
+    "dataset_test": {
+      "total_variables": null,
+      "total_coefficients": null,
+      "max_number_of_points": 200,
+      "type_of_sampling_points": "constant",
+      "predict_c": true,
+      "fun_support": {
+        "max": 10,
+        "min": -10
+      },
+      "constants": {
+        "num_constants": 3,
+        "additive": {
+          "max": 2,
+          "min": -2
+        },
+        "multiplicative": {
+          "max": 2,
+          "min": -2
+        }
+      }
+    }
+  },
+  "architecture": {
+    "sinuisodal_embeddings": false,
+    "dec_pf_dim": 512,
+    "dec_layers": 5,
+    "dim_hidden": 512,
+    "lr": 0.0001,
+    "dropout": 0,
+    "num_features": 10,
+    "ln": true,
+    "N_p": 0,
+    "num_inds": 50,
+    "activation": "relu",
+    "bit16": true,
+    "norm": true,
+    "linear": false,
+    "input_normalization": false,
+    "src_pad_idx": 0,
+    "trg_pad_idx": 0,
+    "length_eq": 60,
+    "n_l_enc": 5,
+    "mean": 0.5,
+    "std": 0.5,
+    "dim_input": 4,
+    "num_heads": 8,
+    "output_dim": 60
+  },
+  "inference": {
+    "beam_size": 10,
+    "beam_configs": [
+      {
+        "beam_size": 1,
+        "length_penalty": 1.0,
+        "max_len": 50
+      },
+      {
+        "beam_size": 3,
+        "length_penalty": 1.0,
+        "max_len": 75
+      },
+      {
+        "beam_size": 5,
+        "length_penalty": 1.0,
+        "max_len": 100
+      },
+      {
+        "beam_size": 10,
+        "length_penalty": 1.0,
+        "max_len": 150
+      }
+    ],
+    "bfgs": {
+      "activated": true,
+      "n_restarts": 10,
+      "add_coefficients_if_not_existing": true,
+      "normalization_o": 0,
+      "idx_remove": null,
+      "normalization_type": "median",
+      "stop_time": 100000
+    }
+  },
+  "ablation": {
+    "enabled": false,
+    "studies": [
+      {
+        "name": "beam_size_study",
+        "parameter": "inference.beam_size",
+        "values": [
+          1,
+          3,
+          5,
+          10,
+          20
+        ]
+      },
+      {
+        "name": "hidden_size_study",
+        "parameter": "architecture.encoder.hidden_size",
+        "values": [
+          256,
+          512,
+          1024
+        ]
+      }
+    ]
+  },
+  "finetune": {
+    "enabled": false,
+    "base_model_path": "/home/scur1229/nesymres/weights/100M.ckpt",
+    "learning_rate": 1e-05,
+    "freeze_encoder": false,
+    "freeze_layers": [],
+    "target_datasets": []
+  },
+  "evaluation": {
+    "metrics": [
+      "mse",
+      "r2",
+      "exact_match"
+    ],
+    "save_predictions": true,
+    "save_detailed_results": true,
+    "compare_with_baselines": false
+  }
+}

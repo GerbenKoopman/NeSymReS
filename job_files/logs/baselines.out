@@ -1,0 +1,256 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+Running gplearn:   0%|          | 0/200 [00:00<?, ?it/s]<lambdifygenerated-1>:2: RuntimeWarning: invalid value encountered in log
+  return -x_1 + log(x_1 + x_2**4)
+<lambdifygenerated-2>:2: RuntimeWarning: invalid value encountered in log
+  return -x_1 + log(x_1 + x_2**4)
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:   0%|          | 1/200 [00:38<2:07:40, 38.50s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:   1%|          | 2/200 [01:06<1:46:10, 32.17s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:   2%|▏         | 3/200 [01:38<1:45:50, 32.23s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:   2%|▏         | 4/200 [02:06<1:39:10, 30.36s/it]<lambdifygenerated-9>:2: RuntimeWarning: invalid value encountered in log
+  return x_1 - x_2**2 - log(x_2)
+<lambdifygenerated-10>:2: RuntimeWarning: invalid value encountered in log
+  return x_1 - x_2**2 - log(x_2)
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:   2%|▎         | 5/200 [02:15<1:14:07, 22.81s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:   3%|▎         | 6/200 [02:43<1:19:06, 24.46s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:   4%|▎         | 7/200 [03:17<1:29:35, 27.85s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:   4%|▍         | 8/200 [03:50<1:34:22, 29.49s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:   4%|▍         | 9/200 [04:23<1:36:52, 30.43s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:   5%|▌         | 10/200 [04:50<1:33:29, 29.53s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:   6%|▌         | 11/200 [05:21<1:34:21, 29.96s/it]<lambdifygenerated-23>:2: RuntimeWarning: invalid value encountered in sqrt
+  return sqrt(-x_1*x_2 + x_3/x_1)
+<lambdifygenerated-24>:2: RuntimeWarning: invalid value encountered in sqrt
+  return sqrt(-x_1*x_2 + x_3/x_1)
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:   6%|▌         | 12/200 [05:51<1:33:56, 29.98s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+Running gplearn:   6%|▋         | 13/200 [06:28<1:39:58, 32.08s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:   7%|▋         | 14/200 [07:02<1:40:49, 32.52s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:   8%|▊         | 15/200 [07:33<1:39:02, 32.12s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:   8%|▊         | 16/200 [08:05<1:38:41, 32.18s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:   8%|▊         | 17/200 [08:38<1:38:47, 32.39s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:   9%|▉         | 18/200 [09:09<1:36:25, 31.79s/it]/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:  10%|▉         | 19/200 [09:39<1:34:24, 31.29s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:  10%|█         | 20/200 [10:07<1:31:16, 30.43s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+Running gplearn:  10%|█         | 21/200 [10:37<1:30:09, 30.22s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+Running gplearn:  11%|█         | 22/200 [11:12<1:34:09, 31.74s/it]<lambdifygenerated-45>:2: RuntimeWarning: invalid value encountered in log
+  return log(-x_1 + x_2)/(x_2*(x_2 - 1))
+<lambdifygenerated-46>:2: RuntimeWarning: invalid value encountered in log
+  return log(-x_1 + x_2)/(x_2*(x_2 - 1))
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:  12%|█▏        | 23/200 [11:49<1:37:44, 33.13s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:  12%|█▏        | 24/200 [12:21<1:36:46, 32.99s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:  12%|█▎        | 25/200 [12:54<1:35:50, 32.86s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:  13%|█▎        | 26/200 [13:22<1:30:59, 31.38s/it]<lambdifygenerated-53>:2: RuntimeWarning: invalid value encountered in log
+  return x_1*cos(sqrt(log(x_2))) + x_3
+<lambdifygenerated-53>:2: RuntimeWarning: invalid value encountered in sqrt
+  return x_1*cos(sqrt(log(x_2))) + x_3
+<lambdifygenerated-54>:2: RuntimeWarning: invalid value encountered in log
+  return x_1*cos(sqrt(log(x_2))) + x_3
+<lambdifygenerated-54>:2: RuntimeWarning: invalid value encountered in sqrt
+  return x_1*cos(sqrt(log(x_2))) + x_3
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:  14%|█▎        | 27/200 [13:56<1:32:57, 32.24s/it]<lambdifygenerated-55>:2: RuntimeWarning: invalid value encountered in sqrt
+  return x_1*sqrt(-x_3 + sin(x_2))
+<lambdifygenerated-56>:2: RuntimeWarning: invalid value encountered in sqrt
+  return x_1*sqrt(-x_3 + sin(x_2))
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:  14%|█▍        | 28/200 [14:28<1:31:51, 32.05s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:  14%|█▍        | 29/200 [14:56<1:28:06, 30.91s/it]<lambdifygenerated-59>:2: RuntimeWarning: invalid value encountered in sqrt
+  return sqrt(x_2**2 - x_2 - exp(x_1))
+<lambdifygenerated-60>:2: RuntimeWarning: invalid value encountered in sqrt
+  return sqrt(x_2**2 - x_2 - exp(x_1))
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:  15%|█▌        | 30/200 [15:25<1:25:55, 30.33s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:  16%|█▌        | 31/200 [15:54<1:24:08, 29.88s/it]<lambdifygenerated-63>:2: RuntimeWarning: invalid value encountered in log
+  return x_3 + (x_2 - log(x_1 + x_2))**(-1.0)
+<lambdifygenerated-64>:2: RuntimeWarning: invalid value encountered in log
+  return x_3 + (x_2 - log(x_1 + x_2))**(-1.0)
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:  16%|█▌        | 32/200 [16:25<1:24:39, 30.24s/it]/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:  16%|█▋        | 33/200 [16:54<1:23:44, 30.09s/it]<lambdifygenerated-67>:2: RuntimeWarning: invalid value encountered in log
+  return -x_2 + log(x_1*(-x_2 + exp(-1)))
+<lambdifygenerated-68>:2: RuntimeWarning: invalid value encountered in log
+  return -x_2 + log(x_1*(-x_2 + exp(-1)))
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:  17%|█▋        | 34/200 [17:30<1:27:22, 31.58s/it]<lambdifygenerated-69>:2: RuntimeWarning: invalid value encountered in log
+  return (x_1 + cos(1))*log(x_2)
+<lambdifygenerated-70>:2: RuntimeWarning: invalid value encountered in log
+  return (x_1 + cos(1))*log(x_2)
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+Running gplearn:  18%|█▊        | 35/200 [18:06<1:30:37, 32.96s/it]<lambdifygenerated-71>:2: RuntimeWarning: invalid value encountered in sqrt
+  return x_2 + sqrt(1 + x_3/(x_1*x_2))
+<lambdifygenerated-72>:2: RuntimeWarning: invalid value encountered in sqrt
+  return x_2 + sqrt(1 + x_3/(x_1*x_2))
+/gpfs/home4/scur1229/nesymres/benchmark_others/scripts/run_gp.py:11: RuntimeWarning: overflow encountered in exp
+  return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:144: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x1) > 0.001, 1. / x1, 0.)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/gplearn/functions.py:127: RuntimeWarning: overflow encountered in divide
+  return np.where(np.abs(x2) > 0.001, np.divide(x1, x2), 1.)
+Running gplearn:  18%|█▊        | 36/200 [18:39<1:30:43, 33.19s/it]

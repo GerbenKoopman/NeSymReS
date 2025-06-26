@@ -1,0 +1,17 @@
+- train_path=../data/raw_datasets/debug/10
+- val_path=../data/raw_datasets/debug/5
+- batch_size=4
+- epochs=5
+- gpu=1
+- precision=32
+- num_of_workers=2
+- wandb=false
+- architecture.encoder.num_encoder_layer=2
+- architecture.decoder.num_decoder_layer=2
+- architecture.encoder.hidden_size=256
+- architecture.decoder.hidden_size=256
+- dataset_train.max_number_of_points=200
+- dataset_val.max_number_of_points=100
+- log_every_n_steps=10
+- save_top_k=1
+- early_stopping_patience=3
