@@ -14,8 +14,8 @@ with open("benchmark_others/configs/dsr.json") as f:
     cfg = json.load(f)
 
 
-#results_no_noise = run_dsr(X_train, y_train, X_test, y_test, cfg)
+results_no_noise = run_dsr(X_train, y_train, X_test, y_test, cfg)
 results_noise = run_dsr_noise(X_train, y_train, X_test, y_test, cfg)
 
-#print(results_no_noise)
+print(results_no_noise)
 print(results_noise)

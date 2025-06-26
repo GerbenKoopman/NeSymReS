@@ -41,7 +41,7 @@ def bench_dsr(path_to_test_set):
     detailed_results["dsr"] = per_eq
 
     out_df = pd.DataFrame(accuracy_records)
-    out_df.to_csv("output/benchmark_accuracies_noise.csv", index=False)
+    out_df.to_csv("output/benchmark_accuracies_dsr.csv", index=False)
 
 
     return detailed_results
@@ -84,7 +84,16 @@ def bench_dsr_noise(path_to_test_set):
     detailed_results["dsr"] = per_eq
 
     out_df = pd.DataFrame(accuracy_records)
-    out_df.to_csv("output/benchmark_accuracies_noise.csv", index=False)
+    out_df.to_csv("output/benchmark_accuracies_dsr_noise.csv", index=False)
 
 
     return detailed_results
+
+
+if __name__ == "__main__":
+    path_to_test_set = "test_set/nc.csv"
+    results = bench_dsr(path_to_test_set)
+    print(results)
+
+    results_noise = bench_dsr_noise(path_to_test_set)
+    print(results_noise)
