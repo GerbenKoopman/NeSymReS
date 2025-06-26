@@ -1,7 +1,401 @@
 index,method,expr_true,expr_pred,mse,correct
-0,gplearn,-x_1 + log(x_1 + x_2**4),-x_0 + log(-x_1) + log(sqrt(x_1**2 + sqrt(-x_0 + log(x_1) + log(x_1**2)) - log(x_1))) + log(0.117505853830044*x_0 + x_1**2 - 0.117505853830044*log(x_1) + x_1**(-2)),0.21482381656439015,False
-1,gplearn,sin(x_3) + sin(x_3/(x_1 - x_2)),sin(x_2),0.4150453581863943,False
-2,gplearn,x_2*cos(x_1*x_3 - x_2) - 1,sin(x_1/x_2) - cos(sin(cos(x_0)))/sin(exp(sin(exp(x_1/x_2)))),17.266104290005266,False
-0,sklearngp,-x_1 + log(x_1 + x_2**4),,0.04270595615540036,False
-1,sklearngp,sin(x_3) + sin(x_3/(x_1 - x_2)),,0.3503556227910927,False
-2,sklearngp,x_2*cos(x_1*x_3 - x_2) - 1,,17.570146875779297,False
+0,gplearn,-x_1 + log(x_1 + x_2**4),-x_0 + 3.16354231835138*sqrt(x_1) - 1/(sqrt(log(-sqrt(2)*sqrt(x_1**2) + log(-sqrt(2)*x_1*sqrt(x_1**2)))) + 0.292803487052628),0.16645270661490644,False
+1,gplearn,sin(x_3) + sin(x_3/(x_1 - x_2)),sin(x_2),0.4203186344302617,False
+2,gplearn,x_2*cos(x_1*x_3 - x_2) - 1,-1.37312388043054*I*sqrt(log(log(x_1) + 1/x_0))*sqrt(log(cos((1/cos(x_0 - x_2))**(1/4))))*sqrt(log(cos(sqrt(1/cos(x_0 - x_2))))),17.009695241357626,False
+3,gplearn,x_2 + tan(x_1 - 1/(x_1 - 1)),x_1 + log(sin(sin(x_0)) + sin(sin(sin(cos(x_0)) + 2*cos(x_0))) + sin(cos(x_0))),17256.759436024862,False
+4,gplearn,x_1 - x_2**2 - log(x_2),x_0 - x_1**2 + log(1/x_1),0.023239486252300094,True
+5,gplearn,x_1 - tan(exp(x_1 - 1)),x_0,3250.761237421682,False
+6,gplearn,x_1*(x_1 + 1)/(x_1 - 1),x_0 + 1.38852439661678*sqrt(0.518672199170125*x_0 + 1 + 0.518672199170125/x_0)/log(x_0) + log((2*x_0 + 1.17835665085609*(0.518672199170125*x_0 + 1 + 0.518672199170125/x_0)**(1/4) + log(x_0)**(1/4) + 1.066)/(x_0 + 0.965242752961986)),17232.09033078992,False
+7,gplearn,x_1*x_3/(-x_1 + x_2) - x_3,-x_2 + log(sqrt(exp(-x_2))),165395.7583445985,False
+8,gplearn,tan(x_2 + x_3)/(-x_1 - 1),9.13863067921721e-6,30693.466953850602,False
+9,gplearn,x_1 + cos(x_1 - x_2*x_3),x_0 - 0.173611111111111,0.5473445290124059,False
+10,gplearn,x_3 + x_3/(x_1 + x_2 + x_3),0.175870559268378*sqrt(x_2) + x_2,1793.9740953853316,False
+11,gplearn,sqrt(-x_1*x_2 + x_3/x_1),sqrt(-x_0*x_1 + x_2/x_0),0.13873653081167386,False
+12,gplearn,x_1/(x_1 + x_3 + log(x_2**4)),exp(-sqrt((-x_1**2*sqrt(exp(x_2))/x_0 + 1/x_0)/x_0)),590.9102984751984,False
+13,gplearn,sin(x_2/(-x_1 + x_2)) - tan(1),-2**(1/4)*x_0**(1/4)*cos(sin(1/(log(sin(1/(log(cos(sin(sqrt(x_1)))) - 1/x_1**(1/4)))) - 1/x_1**(1/4)))),0.27039611790871276,False
+14,gplearn,cos(x_2 + sin(x_1)/cos(x_3)),-sin(sin(sin(sin(-x_1 + sin(x_0) + 4.71999724802202)))),0.4616655072130906,False
+15,gplearn,x_1**2 + x_2 - tan(1) - 1,x_0**2 + x_1 - 2.54452926208651,0.01004880398112232,False
+16,gplearn,x_2*sin(x_1**2 + x_1*x_2),0.397239370704509*x_1*sin(sin(sin((x_0 + x_1)*log(exp(x_0)))) + sin(sin(log(exp(x_0)) + sin(sin(x_1*sin(x_0)))))),14.65839286588112,False
+17,gplearn,-x_1/(x_1 - x_2 + x_3 - 1) + x_3,x_2 - sin(sin(sin(log(sqrt(x_0))))),6182.552341254795,False
+18,gplearn,x_2/(x_2 + cos(x_1*x_3)),cos(cos(x_0/x_2)/x_1),45.9602199390033,False
+19,gplearn,1 + tan(x_2)/(x_2*(-x_1 + x_2)),0.999499624561898*sqrt(I),1210.1885887166866,False
+20,gplearn,1/(x_1 - sin(cos(x_2))),-1/(-x_0 + sin(cos(x_1))),194.0007706331161,False
+21,gplearn,(x_1 + 1)/(x_2 + 1) + 1,0.176675944356145*x_0 - 0.647694012009628*x_0/log(x_1) - 0.647694012009628*log(log(x_1)) + 0.647694012009628*sin(1.5439389302014*log(x_1)/x_0) + 0.647694012009628*sin(1.5439389302014*log(x_1)) + 1.8410280428679 - 2.13440309040551/log(x_1),26825.2202523097,False
+22,gplearn,log(-x_1 + x_2)/(x_2*(x_2 - 1)),log(x_0)*cos((-x_1*log(x_0) + x_1*log(log(x_0)) + x_1)/x_0)/(x_1**2 - x_1),17852.525459245662,False
+23,gplearn,(x_3 - 1)*sin(x_1 + x_1/x_2),0.998850668650663*(x_2 - 0.97072284210722)*sin(x_0)*cos(0.378018479507039*sqrt(-x_1) - exp(sqrt(x_0) - 0.378018479507039*sqrt(-x_1))/sqrt(x_0)),11.421530695338737,False
+24,gplearn,x_2*x_3*cos(x_1 + x_2) + x_2,log(-0.464*exp(x_1*exp(0.00100175682038602*x_2*(x_1*x_2 + x_1*(-x_1 - 6.736) - x_1)))*exp(0.00100175682038602*x_2*(x_1*(x_1*x_2 + x_1*(-x_1 - 6.736) + x_1*(x_1*(-x_1 - 6.736) - x_1 + exp(x_1*exp(cos(x_0 + x_1 + 0.00100175682038602*x_2)))) - x_1) - x_1 + 0.00127858663822884*exp(x_1)))),482.2803024140475,False
+25,gplearn,sin(x_2*tan(x_1**3 - x_2)),0,0.48242443981430744,False
+26,gplearn,x_1*cos(sqrt(log(x_2))) + x_3,x_0/x_1 + x_2 + (x_0 - (1.45420136260409*x_0 - 0.33148610245376*x_0/x_1)*sqrt(1/x_1)/x_1)*sqrt(1/x_1)/x_1,0.05156348272652842,False
+27,gplearn,x_1*sqrt(-x_3 + sin(x_2)),x_0*sqrt(x_2 + cos(exp(x_2))*cos(sin(x_1))**2 - 0.877),1.3993596159786907,False
+28,gplearn,cos(x_1 - tan(x_2**3)),sin(sin(sin(cos(x_0)))),0.48509143222319706,False
+29,gplearn,sqrt(x_2**2 - x_2 - exp(x_1)),sqrt(-x_1**2 + x_1),0.6200514040661672,False
+30,gplearn,-x_2 + (x_3 + sin(x_1/x_2))/x_3,-x_1 + sqrt(cos(1/x_2)),20.860827358074268,False
+31,gplearn,x_3 + 1/(x_2 - log(x_1 + x_2)),x_2 + sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(1/x_1))))))))))))) + 0.029,462.21253858856113,False
+32,gplearn,sin(x_1**2) + 1/x_2,1/x_1,0.49252277605755496,False
+33,gplearn,-x_2 + log(x_1*(-x_2 + exp(-1))),-x_1 + log(x_0*x_1 - 0.365754461105121*x_0),0.03358835605715684,False
+34,gplearn,(x_1 + cos(1))*log(x_2),(x_0 + cos(1))*log(x_1),0.010141377450116056,False
+35,gplearn,x_2 + sqrt(1 + x_3/(x_1*x_2)),x_1 + 1.03510753976498,3.12392037223288,False
+36,gplearn,(x_1 - x_3)/sin(x_1*x_2),cos(x_0 + log(x_1) + cos(x_0 + x_2/(x_0*x_1)) + 1/x_1 - x_2/(x_0*x_1)) + 1/x_1 - x_2/(x_0*x_1),130246.23580746252,False
+37,gplearn,x_2*sqrt(x_1/x_3 + x_2)/x_3,(sqrt(x_0)*x_1/x_2 + x_2*sqrt(x_1*(sqrt(x_0)*x_1/x_2 + x_2*sqrt(-(x_1**3/x_2**3 - 0.271858725826734*I)/x_2))*log(log(-x_2*sqrt(x_1**2/x_2**2)))/(sqrt(x_0)*x_2*sqrt(-x_2))))/sqrt(-x_2),250398315.22406256,False
+38,gplearn,sin(x_2/x_1) + sin(x_1 - x_2),sin(x_1/x_0) + sin(x_0 - x_1),0.01029504563649627,False
+39,gplearn,cos(x_1) - sqrt(cos(x_2)),cos(x_0) - sqrt(cos(x_1)),0.010004680222472882,False
+40,gplearn,x_1*(x_1 + x_2 + x_3 + sin(x_2)),x_0*(x_0 + x_1 + x_2),15.867566035425078,False
+41,gplearn,x_2*(x_1 + log(cos(x_3)))/x_1,x_1 - 0.194287934719254*x_1/(x_0*log(x_2 + 3.394)*cos(x_2)),89360.29949270503,False
+42,gplearn,x_1 + sin(log(x_2*(x_2 - 1))),x_0 + sin((1.66256492738911 + 0.872016470434237*I*pi)*(log(x_1) + 0.411435965469035)),0.13228074991801242,False
+43,gplearn,(-x_1 + x_3)*log(-x_1 + x_2),(-x_0 + x_2)*log(-x_0 + x_1),0.010035085859554593,False
+44,gplearn,x_3 - cos(x_1**3*x_2**3),x_2 - 0.212585034013605/sqrt(x_0),0.6412235926218026,False
+45,gplearn,cos((-x_1 + sin(x_2) - 1)**3),cos(sqrt(sqrt(x_0) - log(-exp(-sin(x_0))))),0.5645998137291587,False
+46,gplearn,x_2 + sin(x_1**5 + x_3),x_1,0.5067380863905443,False
+47,gplearn,x_1 + x_2/(exp(x_2) - 1),x_0 - x_1 + log(1.06524233879303*sqrt(sqrt(sqrt(0.60313237950825*exp(x_1) + (-x_1)**(-1/4)) + 0.776615979431437*exp(x_1)) + 0.881258179781293*sqrt(exp(x_1))) + exp(x_1)),0.010308198636789634,False
+48,gplearn,tan(cos(x_1) + tan(1)),-cos(cos(x_0))/sin(cos(x_0)),31628.501207236677,False
+49,gplearn,x_1 + 1 + 1/(x_1 + 1),x_0 + 1 - 1/(-x_0 - 1),0.00998222740933819,False
+50,gplearn,cos(sin(x_1)) - 1/x_1,cos(sin(x_0)) - 1/x_0,105.33073052952285,False
+51,gplearn,x_1*log(sin(tan(x_1))),(-1.139*x_0*cos(sin(x_0))**2 - 1.10736525660296*x_0)*cos(sin(x_0))**7*cos(cos(x_0 - 7.672))**2,18.994075234912547,False
+52,gplearn,(x_1 + sin(x_2))*(sqrt(x_2) + x_3),x_0 + x_2*(x_0 + sin(x_1)) + (x_0 + (x_0 + sin(x_1))*log(log(x_1)))*log(sqrt(x_1)) + 2*sin(x_1),4.650572012528188,False
+53,gplearn,tan(sin(x_1*tan(x_2) - x_3)),-sin(0.51110959671455*sin(sin(x_2))/sqrt(x_0)),0.9344920635543665,False
+54,gplearn,sin(x_2*(-x_1 + x_2 - x_3 + 1)),0.00520570572568262,0.5100921399218099,False
+55,gplearn,log(cos(x_1**2 - x_2*x_3)),-0.390777647518562,0.8998373423712912,False
+56,gplearn,sin(sin(x_2*x_3/x_1**2)),0.270307587851103*sin(sin(0.64657575013984*sin(sin(x_2/(x_1*sqrt(x_0/x_1))))/sqrt(1/x_1)))/sqrt(1/x_1),0.23301281545506253,False
+57,gplearn,x_1 + sin(exp(x_2) + cos(x_2)),x_0 + cos(x_1),0.4847764100560047,False
+58,gplearn,x_1 + sqrt(x_1 - x_3) + sin(x_2),x_0 + sqrt(-x_0 + x_2) + sin(x_1),0.010222336902417707,False
+59,gplearn,1 - sin(x_1*(x_1 + sin(x_1))),cos(sin(log(exp(2*x_0)))),0.4681944253622209,False
+60,gplearn,x_1/(x_2 + (x_1 + tan(x_3))/x_2),-x_0/(-x_1 - 8.446/x_1),867.1522114007998,False
+61,gplearn,-log((x_1 + x_2)**2),log((x_0 + x_1)**(-2)),0.010246884188250647,False
+62,gplearn,x_1*(-x_1 + cos(sqrt(x_2))**2),-x_0**2 + 0.0479690848841738*x_0*x_1 + x_0 - 16.922*x_0/(x_1 + 11.387) - 0.222816399286987*x_1*log(exp(-0.215285252960172*x_0)),4.008248142296506,False
+63,gplearn,-exp(cos(x_1)) + sin(x_1),-exp(cos(x_0)) + sin(x_0),0.009962118719403501,False
+64,gplearn,x_2 + 1/(-x_1*(x_3 - 1) + x_2),x_1,209.91110427017435,False
+65,gplearn,x_1 + cos(1 + 1/x_2),x_0 + sin(sin(exp(-sin(log(x_1 - 10.744))))),0.13078830123412966,False
+66,gplearn,x_3/(x_1 - x_2*exp(x_2) - 1),x_1**2*exp(-2*x_1**2 - sin(x_0*x_2))/(x_0**2*(-x_0*x_2 + x_1 - 1.264)),4174835.6246944647,False
+67,gplearn,tan(exp(x_1 - x_2)) - 1,-sin(1.41562706953491 + 1/sqrt(x_0 - x_1)),25413.842902609806,False
+68,gplearn,cos(x_1**5*(x_2 - x_3)**5)/x_1,cos(sqrt(x_0))*cos(x_0)**7/x_0,937.8317400312604,False
+69,gplearn,x_1*cos(x_2)*tan(x_2),x_0*sin(x_1),0.010397547683295287,False
+70,gplearn,exp(cos((x_1 + x_2 + 1)**4)),1,0.9150693337282302,False
+71,gplearn,x_3/(x_2*(x_3**2 + tan(x_1))),exp(-1/x_2**2)/(x_1*x_2),19.593493610003613,False
+72,gplearn,-x_3 + (-x_1 + x_2)/log(x_2) - 1,-x_0 - x_2 + sqrt(log(sqrt(exp(x_0))*exp(2*x_0)*exp(x_1) - exp(3*x_0)*exp(x_1)*cos(sqrt(x_1)) + cos(sqrt(x_1)))),18647.0337904524,False
+73,gplearn,x_2 + cos(tan(x_1 - cos(1))),x_1 + sin(exp(sin(exp(sin(sin(x_0 + 11.743))) + 11.743))),0.4281237337880138,False
+74,gplearn,-x_2 + cos(x_2 - 1)/x_1,-x_1,178.73952778523798,False
+75,gplearn,log(x_1/sin(1/x_1)),log(-x_0**2) + exp(-2*x_0**2),0.10876404581758943,False
+76,gplearn,x_3/(x_2 + cos(x_1/cos(x_2))),x_2/(x_1 + 0.159616690095736*log(x_1 + sin(x_2)/x_1)/x_1),37479.91107707088,False
+77,gplearn,x_1 + x_1/(x_2*(x_1 + cos(x_2))),x_0 + 1/x_1,18.260742872826224,False
+78,gplearn,x_2/((x_1 + tan(x_2))*(x_2 + x_3)),0.0114068516261676*x_0,14881.176731367132,False
+79,gplearn,x_1 - x_2*(cos(x_2) - cos(x_3)),x_0,34.73056958479052,False
+80,gplearn,x_3*cos(x_2 + x_3) + cos(x_1),sin(sin(sin(sin(1/x_0) - sin(sin(x_1)) + sin(sin(sin(1/x_0))) + cos(x_0/cos(x_0)**(1/4))))) + cos(x_0/cos(log(cos(x_0)**(1/4)))),16.817043542755844,False
+81,gplearn,x_2**2 - cos(cos(x_1)),x_1**2 - cos(cos(x_0)),0.01002306357375326,False
+82,gplearn,-x_2*sin(x_1*(x_3 - 1)),sin(sin(sqrt(cos(1/cos(0.642835323443768*(-1/sin(x_2))**(1/4))))/sin(sin(0.642835323443768*(-1/sin(x_2))**(1/4)/sin(sin(0.413237253067054*x_1*sqrt(-1/sin(x_2))/x_2))))))/sqrt(sqrt(x_2/x_1)/x_1),19.765640086053047,False
+83,gplearn,tan(cos(x_1) - tan(1)) - 1,log(1.48087811787466*sqrt(0.455996352029184*cos(x_0) + 1)*exp(-0.965242752961986/cos(x_0))*log(2.193 - sqrt(sin(0.785270469435751 + I*pi))))/cos((cos(x_0) - 3.439)/(-x_0 - 10.181)),5913.8753028696865,False
+84,gplearn,(x_2 + x_3 - cos(x_1))/x_3,x_1*(sin(x_0)**(1/16) + x_2/x_1)/x_2,36.90744390286974,False
+85,gplearn,x_1*(sin(x_2) - sin(x_3)/x_2),x_0*sin(x_1) + 0.000568221074101608,653808.2144066257,False
+86,gplearn,x_3*cos(x_1**2 + x_2)**3,-0.0160000000000000,10.265399261263136,False
+87,gplearn,tan((x_1 - x_2**5)*sin(x_3)),-0.0796495420151334/x_1,1013800.6079381962,False
+88,gplearn,-x_1*sin(tan(x_1*x_2)) + x_1,0.859*x_0,15.05636605621175,False
+89,gplearn,cos(1 - (x_2*x_3 + x_2)/x_1),exp(-x_1**(1/4))*cos(x_1),0.515110742263976,False
+90,gplearn,x_1 - (x_2 + x_3)*sin(x_1) + 1,x_0 + (-x_1 - x_2)*sin(x_0) + 1,0.01010280880223319,False
+91,gplearn,-1/tan(x_1*x_2),-1/(x_0*x_1),11273.80768461067,False
+92,gplearn,sin(x_1) + tan(tan(exp(x_1))),sin(x_0),1073.4744603770328,False
+93,gplearn,(x_2 + x_3 + (x_2 - 1)/x_2)/x_1,(x_1 + x_2 + sin(1.7538529014715*sqrt(1/sin((x_1 + x_2)**(1/4)))))*sin(1.7538529014715*sqrt(exp(-1/(x_0*x_1*(x_1 + x_2 + 1) + x_1 + 1))))/x_0,489120.0833638172,False
+94,gplearn,x_1/(x_2*(-x_2 + x_3)) - x_2,-x_1 + log(x_2/(7.882 + (-x_1 - 0.292)/(x_1*log(x_2/(x_2 + 7.882)))))*log(-0.106462259129139*x_1*log(-0.106462259129139*x_2)/(1.08744916322577*x_1 + 0.317535155661924))/((7.882 - 9.393*(0.106462259129139*x_1 + 0.0310869796657085)/x_1)*(-x_1 - 0.292)),298425.718363647,False
+95,gplearn,x_2 + log(x_1*(x_1 + sin(x_2))),x_1 + log(-x_0**2 - 0.0985318750615824),0.18663462671071912,False
+96,gplearn,x_2 + x_3/(-x_1*x_3 - x_2),x_1 - 0.0876347384103058,125.51371679832567,False
+97,gplearn,sin(x_3*(x_1 - x_2 + 1)),-0.00100000000000000,0.507261469987775,False
+98,gplearn,-x_2 + x_3*sin(cos(tan(x_1))),-x_1 + 0.645677290687849*x_2,13.7483748294111,False
+99,gplearn,sin(x_2*(x_1 + x_3)**2 + x_2),0.132000000000000,0.5216364900896572,False
+100,gplearn,x_1*(x_2 - asin(1/x_1)),x_0*x_1 - 1.01155794415428 + I*pi,0.012436502661088105,True
+101,gplearn,cos(sqrt(x_1**2 - 1)),cos(x_0 - 1/(2*x_0)),0.010398407986887539,False
+102,gplearn,x_1*(x_1 + x_2*cos(x_3)) + 1,x_0**2 + sqrt(sqrt(-sqrt(x_1*(-x_0*sqrt((-exp(x_0)**(1/4) - 2.25034558012372)*exp(x_0)) + 1.13644654219943*sqrt(0.774287016353139*x_1*exp(x_0) - sqrt(-x_1*exp(x_0))))*exp(x_0))) + sqrt(x_1*exp(x_0)) - sqrt(x_1*(x_1 - x_2)*exp(x_0)) + 1/(x_0 + 1.668)),602.2854701742543,False
+103,gplearn,x_1*cos(x_2**3 + x_2),0.3992023920279*x_0/sqrt(x_1) + log(cos(2.50499500997507*log(cos(2.50499500997507*cos(sin(0.3992023920279*x_0/sqrt(x_1)))))/sqrt(x_1))),25.4176550990337,False
+104,gplearn,sin(exp((x_2 + x_3)/x_1)),sin(sqrt(sin(sqrt(x_1 + x_2))**2/(x_1 + x_2))),0.2242981924531162,False
+105,gplearn,tan(x_2 + (x_1 + x_3)/(x_2*x_3)),sin(sin(sin(sin(2*x_1)))),819.9742141976258,False
+106,gplearn,exp(1 - cos(x_1)) + 1,exp(1 - cos(x_0)) + 1,0.009752606534972853,False
+107,gplearn,x_1 - sqrt(x_1 + x_2)/x_2,x_0 - sin(1/x_1) - 0.119880034583295 + I*pi - 1/x_1,5152.145047805138,False
+108,gplearn,x_1/(x_1 + tan(sin(x_1))),cos(sin(sqrt(x_0) + cos(cos(5.322/x_0)))),0.04595322391075692,False
+109,gplearn,(x_3 + sin(x_1)/x_2)/x_3,cos(1/(x_1*(x_2 + log(cos(1.704*x_2*(x_2 + 7.791)))))) + 0.0512873115191302/x_2,55.60203380200253,False
+110,gplearn,x_2*x_3/(x_1*(x_1 + sqrt(x_2))),sqrt(x_1)*(sin(sqrt(sqrt(x_1)*x_2/x_0)*(sin(sin(x_1) + sin(sin(x_2/x_0)/x_0) + x_2/x_0) + x_2/x_0)/x_0) + sin(0.0977708251857646*x_2*sqrt(-x_2*(-sin(x_2/x_0) + sqrt(x_1)*x_2/x_0)/x_0)/x_0 - x_2/x_0) + sin(sin(sin(x_2/x_0)) - x_2/x_0) + x_2/x_0),113490.25883492897,False
+111,gplearn,x_1*sin(x_2 + x_3*sin(x_1)),sin(x_2)*cos(x_1),16.35486400813952,False
+112,gplearn,cos((x_1 + x_2)*(x_1 + x_3 + 1)),-0.216169476869866*sin(sin(x_0*x_1)),0.531989611129076,False
+113,gplearn,x_2**2*sin(x_1 - 1) - 1,-exp(sqrt(x_1))*log(x_1)*cos(x_0) - exp(sqrt(x_1))*sin(x_0 - 3.654)/sin(1/log(x_1)) - cos(x_0) - 1.13030866918139/cos(cos(x_1/x_0)) + (-0.0641627786001893 + I*pi)/(-1.29366106080207*x_1*cos(x_0) + sqrt(-x_1 - exp(sqrt(x_1))*log(x_1)*cos(x_0) - 0.223430762470698*log(x_1)) + sin(x_0)),150.3209263731036,False
+114,gplearn,x_2/(x_1*(x_2 + sin(x_1 + x_3))),1/x_0,336.290112336708,False
+115,gplearn,x_3 - 1/(x_1 + exp(x_2)),nan,61.889626348348465,False
+116,gplearn,x_2**2 - cos(sin(x_1)),x_1**2 - cos(sin(x_0)),0.00995459510914486,False
+117,gplearn,sqrt(x_1*(x_2/x_3 + x_3)),sqrt(x_0*x_1/x_2 + x_0*x_2),0.010180992279822545,False
+118,gplearn,log(exp(x_1 + x_2) + log(x_2)),log(exp(x_0 + x_1) + log(x_1)),0.014882403365240549,False
+119,gplearn,x_1*x_2/log(log(-x_1)),-11.908*x_1 - 2*x_1/cos(4.298/x_0) - log(-0.167196121049992*x_0) + 2*(sqrt(x_1) - 11.908*x_1)/x_0 + (-x_1/cos(4.298/x_0) + (sqrt(x_1) - 11.908*x_1)/x_0)*sin(x_1)/x_0,9798639.584203653,False
+120,gplearn,sqrt(-1 + (x_1*x_2 + x_2)/x_3),sqrt(x_0*x_1/x_2 + x_1/x_2 - sqrt(zoo*log(x_1/x_2))),0.010166344278322323,False
+121,gplearn,x_2*sin(x_1 - x_3**2),exp(cos(x_0))*log(cos(3.34185577187287*sqrt(0.089541547277937*x_1 - 1))),18.645094068643516,False
+122,gplearn,cos(sin(x_2) + x_3/x_1),sin(cos(x_2/x_0)),0.20339105976851415,False
+123,gplearn,x_2 - log((x_1 - 1)**2),-sqrt(x_0) + x_1 + 0.626473047291953*log(sqrt(x_0) + 0.586291224743602) - log(sqrt(x_0) - x_0),0.3018067520931267,False
+124,gplearn,sqrt(tan(x_2*(-x_1 + exp(-1)))),0.997174915978456,8.345656668217895,False
+125,gplearn,-x_2*sin(x_1*x_3 + 1) - 1,-cos(log(log(x_2))/log(x_2 + log(sin(sin(x_0))))) + cos(0.0891345039664854*x_1 + 1.73385771571523) + cos(0.0891345039664854*x_1 + exp(exp(sin(x_0)))),17.88117941145473,False
+126,gplearn,-x_1 + exp(-sin(x_1/x_2)),-x_0 + 0.460584407329244*sqrt(x_0 - x_1),0.38845326283221937,False
+127,gplearn,x_1 - x_2**2 + x_2 + x_3 - 1,x_0 - x_1**2 + x_1 + x_2 - 1,0.009836758425450764,True
+128,gplearn,log(cos(exp(-1/cos(x_1)))),-0.370081098369093 + I*pi,0.3022068612400947,False
+129,gplearn,x_1 - x_2*cos(x_1**3),x_0 - 0.143184421534937*x_1 + sin(x_1/x_0) + sin(1/(-x_0 - 0.0876731544800982*x_1)) + 2*sin(1/(x_0 - 0.0876731544800982*x_1)) + sin(exp(-x_0)),16.892615053643063,False
+130,gplearn,sin(x_2*x_3/x_1) - 1,-0.898000000000000,0.4972853458490334,False
+131,gplearn,sqrt(x_2/(x_1 + x_1/sin(x_1))),(((sqrt(sin(x_0))/cos(x_0))**(1/4)*(-sin(x_0) - exp(-cos((1/log(x_0))**(1/4))/cos(x_0)) + log(sin(x_0) - sin(exp(-sin(x_0))))/x_1)**(1/4)*exp(-sin(x_0))*sin(x_0))**(1/4)/cos(x_0))**(1/4)*sqrt(exp(-sin(sin(x_0)))*cos(1/sqrt(1/log(x_0)))/cos(x_0))*exp(-sin(x_0)),438.30412163198486,False
+132,gplearn,sin(cos(x_1*tan(x_1) + x_1)),sin(sin(1/sin(exp(-sqrt(x_0) - cos(1/x_0)))))*cos(x_0),0.3312108695339677,False
+133,gplearn,x_2/(x_2 + sqrt(x_1*x_3)) + x_3,0.0143597645142217*sqrt(x_1) + x_2 + 0.11983223487118*log(x_1) + 0.11983223487118*log(5.921/(x_0*x_2)) + 0.11983223487118*log(log(sqrt(x_1))) + 0.470588235294118,11783.914946041486,False
+134,gplearn,log(sqrt(x_1*sin(x_2))),log(sqrt(x_0*sin(x_1))),0.010154626709997252,False
+135,gplearn,x_3 + 1 - 1/(x_1 + x_2*x_3),x_2 + 1,1222.0204674581819,False
+136,gplearn,-x_1 + x_2*cos(x_3 - sin(x_3)),-0.951105719935495*x_0 + 0.951105719935495*x_1,29.832697635009147,False
+137,gplearn,x_2*(x_2 + x_3) - cos(tan(x_1)),x_1**2 + x_1*x_2 - 0.399520575309628*sin(sin(sqrt(cos(2.503*sqrt(cos(x_0))))))/sqrt(sin(sqrt(cos(x_0)))) + cos(2.503*cos(x_0)),0.14424642577259394,False
+138,gplearn,cos(x_2)/cos(x_1/x_3),(1.04063000612976 + I*pi)**3*cos(x_1),757.4512940830956,False
+139,gplearn,-x_1 + tan(x_1*x_2**2 - x_3),-x_0 - 0.200400801603206,388607984.7342537,False
+140,gplearn,x_1**2 + x_2 - cos(x_2 - x_3),x_0**2 + x_1,0.5121813927585772,False
+141,gplearn,x_2*cos(x_2) + cos(x_1/x_2),x_1*cos(x_1) + 0.3259387312327*sqrt(-x_1*sin(sqrt(1/sin(sin(sin(sin(1/x_0))))))),0.27419605688453075,False
+142,gplearn,cos(x_1 - tan(x_2)**2),0.353973984576087*sin(x_0)/((1.49559709601034 + I*pi)*cos(sin(x_1))) + cos(x_0)*cos(sin(x_1))**2,0.3114133133020019,False
+143,gplearn,log(x_1 - x_2 + x_3 + exp(x_2)),log(-x_0 + x_1 - x_2 - exp(x_1)),0.010176772436382774,False
+144,gplearn,tan(x_1*cos(1/x_1)/x_2),sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(1.91029540864771*x_0/x_1)/cos(sin(x_0/x_1)))))/cos(sin(x_0/x_1)))))/cos(sin(x_0/x_1)))))))/cos(sin(x_0/x_1)))))/cos(sin(x_0/x_1)))))))/cos(sin(x_0/x_1))))/cos(sin(x_0/x_1))))/cos(sin(x_0/x_1))))/cos(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(sin(1.91029540864771*x_0/x_1)/cos(sin(x_0/x_1)))))/cos(sin(x_0/x_1)))))/cos(sin(x_0/x_1)))))))/cos(sin(x_0/x_1))))/cos(sin(x_0/x_1)))))))/cos(sin(x_0/x_1))))/cos(sin(x_0/x_1))),4566.469759771456,False
+145,gplearn,-x_1*(x_1 + sin(x_1 + x_2)),-x_0**2 + 0.147405660377358*x_0 - sin(sin(sin(sin(sin(cos(x_1)))))),16.939966566578555,False
+146,gplearn,sin(log(-x_1/x_2 + x_2)),sqrt(cos(cos(0.29171528588098*x_1))),0.16754260134670146,False
+147,gplearn,tan(log(-x_1*x_2 + x_1)),-sin(log(x_0*x_1)) + sin(cos(exp(exp(-sqrt(x_0))*exp(3.12052107782557*exp(-x_0*x_1))))),1361.482721816685,False
+148,gplearn,x_1 + x_2 + sin(x_1 + x_3) + 1,x_0 + x_1 + sqrt(cos(cos(x_0 - cos(x_0)))),0.5238427310668411,False
+149,gplearn,x_2 + x_3 - tan(x_2/x_1),x_1 + x_2,338120.65445317177,False
+150,gplearn,x_2*(x_1 + log(x_2) + 1) + x_3,x_1*(x_0 + log(x_1)) + x_1 + x_2,0.009909297605624928,False
+151,gplearn,sin(x_3)/(x_1**5 + x_2),5.12182365353331e-6,1.1436192364384308,False
+152,gplearn,x_1 + (x_2 + sin(x_1 + 1))/x_3,x_0 + x_1/x_2,5739.185506706386,False
+153,gplearn,asin(sin(x_1)/x_1),sqrt(exp(-x_0**2 + exp(sqrt(x_0)*sin(sin(sqrt(x_0)*sin(sin(log(x_0)))))))),0.02067154620540945,False
+154,gplearn,-x_2 + (x_1 + sqrt(x_2))**2,x_0**2 + 3.514*x_0 - sin(x_1**2/(x_0 + x_1**2/x_0)) - x_1**2*(-3.028*x_0 - sin(x_1**2*(-1.514*x_0 + sin(cos(x_1)))/(2*x_0**2)) + cos(x_1))/(x_0*(x_0 + x_1**2/x_0)),28.983591207246356,False
+155,gplearn,x_2 + 1 + (x_1 + cos(x_1))/x_3,x_0/x_2 + x_1 + 1 + cos(x_0)/x_2,0.010062969406809279,False
+156,gplearn,cos(x_1*(-x_1 + x_2**2*x_3)),cos(2.84900284900285*x_2)/exp(sqrt(x_0))**(3/4),0.5669410627226138,False
+157,gplearn,(tan(x_2/x_1) - 1)/x_2,-1/x_1,13237.203953767203,False
+158,gplearn,x_2*cos(x_1*x_2*x_3 + x_1),sin(sin(sin(sin(sin(sin(sin(sin(x_0/x_2)))))))),16.963174619989925,False
+159,gplearn,x_2**2 + sin(x_1*x_2),x_1**2,0.5089234738242902,False
+160,gplearn,x_1*(-x_2 + sqrt(x_1 - x_3)),-x_0*x_1 + 2*x_0 + log(-(x_0 - x_2)*cos(1/x_0) + log(log(-x_0*(x_0 - x_2) + 2*x_0)) + 3.919) + log(2*x_0*(-x_0 + x_2) + 8*x_0 + log(4*x_0) - 3.919 - 1/x_0),17.87235117339159,False
+161,gplearn,x_3**2/(x_1*exp(x_2) + x_3),x_2/sqrt(exp(exp(x_1))),2159.0096232579963,False
+162,gplearn,(-x_1 + (-x_1 + x_2)*log(x_2))/x_1,-sqrt(x_1 + exp(sin(sin(log(x_1 + sin(log(0.0028058536405826*x_1))))))) + 0.0529703090474523*sqrt(x_1)*(x_1 + 4.156)*(x_1 + exp(sin(0.15488518365475*x_1**(3/2))))/x_0,174.67414991887756,False
+163,gplearn,x_3 + sin(x_1) - 1/(x_2*x_3),x_2 + sin(x_0) - 1/(x_1*x_2),11818.216113291806,False
+164,gplearn,x_1 - x_2 + tan(x_1**2 - x_3),x_0 - x_1,26868.38355587784,False
+165,gplearn,sqrt(-x_1 + x_2*x_3/x_1),sqrt(x_0 - x_1*x_2/x_0),0.009974788342762811,False
+166,gplearn,x_1 - sin(x_3/(x_1 + x_2 + 1)),x_0,0.4213902913320862,False
+167,gplearn,cos(x_1 + x_2 + (x_2 + x_3)**2),-0.441857307663172*sin(1/x_1),0.5396813240005486,False
+168,gplearn,(-x_2 + x_3*(-x_1 + x_3))**(-3),7.43731991868082e-6,23910331372077.816,False
+169,gplearn,-x_1 + cos(1 + 1/x_1),-x_0 + cos(1 + 1/x_0),0.010178006397727953,False
+170,gplearn,-x_3 + tan(x_3/(x_1*x_2)),-x_2,30160.09897310129,False
+171,gplearn,-x_1**2 + x_1/x_2 + x_2 + x_3,-x_0**2 + x_1 + x_2,1081.134179088503,False
+172,gplearn,cos((x_1 - x_2 - 1/x_2)**5),sin(sin(0.132703086973541*sqrt(1/sin(sqrt(x_0))))),0.5691142027362022,False
+173,gplearn,x_2 + x_3 - x_3/(x_1 - 1),x_1 + x_2 - sin(x_2/x_0),4973.167107187505,False
+174,gplearn,x_1 - x_3*(x_2 - 1) + tan(x_3),x_0 - x_1*x_2 + x_2 + sin(x_2)/cos(x_2),3023.7963269647225,False
+175,gplearn,x_2 - cos(sin(x_1) - 1)**2,x_1 - sin(sin(sin(x_0))) - 0.21862713328705,0.1128061561058084,False
+176,gplearn,x_1 + x_2 + (x_1 + x_2*x_3)/x_3,x_0 + x_0/x_2 + 2*x_1,0.010162504288866845,False
+177,gplearn,x_2/(-exp(x_1) + tan(x_1)) - 1,-sqrt((-sin(x_0 - x_1) + (x_1 - (0.993326604822272 - x_1)/(-x_0 - 9.959 + 0.627504362814855*I) + sin(x_0 - x_1))/(-x_0 - 9.56523827464832))/(-x_0 - sin(x_1 - (0.993326604822272 - x_1)/(-x_0 - 9.959 + 0.627504362814855*I) + sin(x_0 - x_1) - cos(sqrt(x_1))) - 9.959) + 0.917316810496919*I),27620.341794785647,False
+178,gplearn,x_2*(x_2 - (-x_1 - 1)/x_2),x_0 + x_1**2 + 1,0.010335951149204109,True
+179,gplearn,cos(sin(exp(x_1) + 1)),sqrt(-sin(sin(exp(x_0) - 0.488637315750049))),0.019202774964849425,False
+180,gplearn,log(x_2 + cos(x_2))/(x_1 + x_3),sqrt(x_1)*exp(-1/sqrt(-exp(1/sqrt(-x_1 + 1/cos(x_1**(1/4)))) + 1/cos(x_1**(1/4))))/(x_0 + x_2),1.8489507775656058,False
+181,gplearn,-1 - sin(x_1)**2/x_2,-0.997619177894815,251.8347284560223,False
+182,gplearn,sin(tan(x_2))*cos(x_1),0.0250000000000000,0.2241190205960019,False
+183,gplearn,cos(x_1*(x_2 + 1) + sin(x_1)),cos(x_0)*cos(x_0*x_1),0.29793367592149744,False
+184,gplearn,sin((x_1 - x_3)/(x_2*x_3)),-0.0197703511595934*x_1,0.2252274607494191,False
+185,gplearn,cos(cos(x_2)**2/(-x_1 + x_3)**2),0.999939031751277,0.11645965098029548,False
+186,gplearn,x_3 + (-x_2 + x_3)*cos(x_1 + x_3),x_2 + (x_2*(x_2**2*exp(x_1 - x_2)/(-285500.768544708*x_2 - 285500.768544708*(x_2*(x_2**2*exp(x_1 - x_2)/(-285500.768544708*x_1 + 285500.768544708*x_2 + 285500.768544708*exp(exp(x_1*(-x_1 + x_2 + log(-x_2 - (x_2*(x_2**2/log(-x_2 - log(x_1)) + x_2)*exp(-exp(x_1*(2*x_2 + 0.206))))**(1/4)) + 12.562))) + 3586460.65445862) + x_2)*exp(-exp(x_1*(2*x_2 + 0.206))))**(1/4)) + x_2)*exp(-exp(x_1*(x_2 + log(x_1)))))**(1/4),41.219944359947704,False
+187,gplearn,x_2 + x_3 + cos(x_1 + 1) + 1,x_1 + x_2 - sin(sin(x_0)) + cos(1.3796464878545*((sqrt(sin(sqrt(x_0))) - sqrt(cos(1/x_0)))/sqrt(-sin(1.33460580847224*sqrt(sin(sqrt(x_0))) - 1.33460580847224*sqrt(cos(sqrt(x_0))))))**(1/4) - 1.3796464878545*sqrt(sin(sqrt(x_0)))),0.10832852053117685,False
+188,gplearn,asin(x_1**3/(x_3*(x_2 + x_3))),0.121921482565228*x_0,0.11125649544892328,False
+189,gplearn,cos((x_1 - 1)**3)**2,sin(sqrt(-0.306833114323259 - 1/(2*x_0 + 1/(2*x_0)))),0.13778538218246683,False
+190,gplearn,x_1*(x_1 + x_3 + 1) + sqrt(x_2),x_0**2 + x_0*x_2 + x_0 + sqrt(x_1),0.0097876094899777,False
+191,gplearn,-x_1 + x_2 - sin(x_2*x_3),-x_0 + x_1,0.5068932478650247,False
+192,gplearn,sin(x_2*x_3*(x_1*x_2 + x_3)),0.03/x_0,0.5291669513368024,False
+193,gplearn,sin((-x_2 + x_3)**2/(x_1 + x_2)),0.0201007128373738*x_0,0.4465371283047082,False
+194,gplearn,(x_1*x_2 + sqrt(x_2))/x_1,x_1 + sqrt(x_1)/x_0,7821.742272515802,False
+195,gplearn,x_1 - x_3 + (x_2 + x_3)*sin(x_3),nan,0.6594989826568274,False
+196,gplearn,x_1 + log(x_2 + tan(x_2)) + 1,x_0 + (1/cos(x_1))**(1/4) + log(x_1),0.5926689625031157,False
+197,gplearn,x_1 - x_2*x_3 + x_2 + cos(x_3),x_0 - x_1*x_2 + x_1,0.537013595933949,False
+198,gplearn,x_1/(x_1 + x_2**2 + tan(x_3)),exp(-x_1 + sin(x_1)),180.6558361420365,False
+199,gplearn,x_2 + x_3 - tan(x_1 - x_2)/x_3,x_1 + x_2 - 0.551267916207277/x_2 - 1/(x_2*log(-exp(x_0) + 1/x_0)),221104.97691331367,False
+0,sklearngp,-x_1 + log(x_1 + x_2**4),,0.03125188722774758,False
+1,sklearngp,sin(x_3) + sin(x_3/(x_1 - x_2)),,0.3304735627643888,False
+2,sklearngp,x_2*cos(x_1*x_3 - x_2) - 1,,17.698504210536267,False
+3,sklearngp,x_2 + tan(x_1 - 1/(x_1 - 1)),,16193.844948437276,False
+4,sklearngp,x_1 - x_2**2 - log(x_2),,0.036479869614782716,False
+5,sklearngp,x_1 - tan(exp(x_1 - 1)),,40606.07380218923,False
+6,sklearngp,x_1*(x_1 + 1)/(x_1 - 1),,967.660827106987,False
+7,sklearngp,x_1*x_3/(-x_1 + x_2) - x_3,,2185317.4725167598,False
+8,sklearngp,tan(x_2 + x_3)/(-x_1 - 1),,10562.150540130819,False
+9,sklearngp,x_1 + cos(x_1 - x_2*x_3),,3.691425038969941,False
+10,sklearngp,x_3 + x_3/(x_1 + x_2 + x_3),,1873.4581021214194,False
+11,sklearngp,sqrt(-x_1*x_2 + x_3/x_1),,5.457360479023623,False
+12,sklearngp,x_1/(x_1 + x_3 + log(x_2**4)),,14306.67878988902,False
+13,sklearngp,sin(x_2/(-x_1 + x_2)) - tan(1),,0.2660910330039842,False
+14,sklearngp,cos(x_2 + sin(x_1)/cos(x_3)),,0.46528432943710896,False
+15,sklearngp,x_1**2 + x_2 - tan(1) - 1,,0.009854869845802658,False
+16,sklearngp,x_2*sin(x_1**2 + x_1*x_2),,16.040535579972016,False
+17,sklearngp,-x_1/(x_1 - x_2 + x_3 - 1) + x_3,,740.9408988947018,False
+18,sklearngp,x_2/(x_2 + cos(x_1*x_3)),,135.03866860360233,False
+19,sklearngp,1 + tan(x_2)/(x_2*(-x_1 + x_2)),,3023.8384865457588,False
+20,sklearngp,1/(x_1 - sin(cos(x_2))),,2892.4035572002617,False
+21,sklearngp,(x_1 + 1)/(x_2 + 1) + 1,,6673.895537500636,False
+22,sklearngp,log(-x_1 + x_2)/(x_2*(x_2 - 1)),,2013.7706488283325,False
+23,sklearngp,(x_3 - 1)*sin(x_1 + x_1/x_2),,17.572818134752694,False
+24,sklearngp,x_2*x_3*cos(x_1 + x_2) + x_2,,381.6332849384366,False
+25,sklearngp,sin(x_2*tan(x_1**3 - x_2)),,0.4867170237335821,False
+26,sklearngp,x_1*cos(sqrt(log(x_2))) + x_3,,0.013141748190092017,False
+27,sklearngp,x_1*sqrt(-x_3 + sin(x_2)),,0.7535361200412956,False
+28,sklearngp,cos(x_1 - tan(x_2**3)),,0.5154420129502996,False
+29,sklearngp,sqrt(x_2**2 - x_2 - exp(x_1)),,0.032523506547573515,False
+30,sklearngp,-x_2 + (x_3 + sin(x_1/x_2))/x_3,,182.04434691486344,False
+31,sklearngp,x_3 + 1/(x_2 - log(x_1 + x_2)),,116.72336991407052,False
+32,sklearngp,sin(x_1**2) + 1/x_2,,1711.138323691498,False
+33,sklearngp,-x_2 + log(x_1*(-x_2 + exp(-1))),,0.055181898786773514,False
+34,sklearngp,(x_1 + cos(1))*log(x_2),,1.3625169443203353,False
+35,sklearngp,x_2 + sqrt(1 + x_3/(x_1*x_2)),,2.0566540129525213,False
+36,sklearngp,(x_1 - x_3)/sin(x_1*x_2),,1728171.0728766571,False
+37,sklearngp,x_2*sqrt(x_1/x_3 + x_2)/x_3,,284392190.8106101,False
+38,sklearngp,sin(x_2/x_1) + sin(x_1 - x_2),,0.22761419184520482,False
+39,sklearngp,cos(x_1) - sqrt(cos(x_2)),,0.014291298271791547,False
+40,sklearngp,x_1*(x_1 + x_2 + x_3 + sin(x_2)),,4391.233447697112,False
+41,sklearngp,x_2*(x_1 + log(cos(x_3)))/x_1,,6134.707169019986,False
+42,sklearngp,x_1 + sin(log(x_2*(x_2 - 1))),,0.05433900758133459,False
+43,sklearngp,(-x_1 + x_3)*log(-x_1 + x_2),,252.3379426783429,False
+44,sklearngp,x_3 - cos(x_1**3*x_2**3),,3.7388090232727214,False
+45,sklearngp,cos((-x_1 + sin(x_2) - 1)**3),,0.5349481199450674,False
+46,sklearngp,x_2 + sin(x_1**5 + x_3),,3.482817225534179,False
+47,sklearngp,x_1 + x_2/(exp(x_2) - 1),,0.010110171825085239,False
+48,sklearngp,tan(cos(x_1) + tan(1)),,20403.839856131835,False
+49,sklearngp,x_1 + 1 + 1/(x_1 + 1),,178.47597734208136,False
+50,sklearngp,cos(sin(x_1)) - 1/x_1,,10547.052669026145,False
+51,sklearngp,x_1*log(sin(tan(x_1))),,20.607585669102082,False
+52,sklearngp,(x_1 + sin(x_2))*(sqrt(x_2) + x_3),,1273.5118092938087,False
+53,sklearngp,tan(sin(x_1*tan(x_2) - x_3)),,0.9895112756789324,False
+54,sklearngp,sin(x_2*(-x_1 + x_2 - x_3 + 1)),,0.5049679243001552,False
+55,sklearngp,log(cos(x_1**2 - x_2*x_3)),,1.2792043040946792,False
+56,sklearngp,sin(sin(x_2*x_3/x_1**2)),,0.24027469915132502,False
+57,sklearngp,x_1 + sin(exp(x_2) + cos(x_2)),,4.037640978515032,False
+58,sklearngp,x_1 + sqrt(x_1 - x_3) + sin(x_2),,60.003485118162295,False
+59,sklearngp,1 - sin(x_1*(x_1 + sin(x_1))),,0.010047500073679369,False
+60,sklearngp,x_1/(x_2 + (x_1 + tan(x_3))/x_2),,676.1163432319714,False
+61,sklearngp,-log((x_1 + x_2)**2),,2.5892347425688875,False
+62,sklearngp,x_1*(-x_1 + cos(sqrt(x_2))**2),,0.00991978735338963,False
+63,sklearngp,-exp(cos(x_1)) + sin(x_1),,0.009898166426082444,False
+64,sklearngp,x_2 + 1/(-x_1*(x_3 - 1) + x_2),,211.2105560774463,False
+65,sklearngp,x_1 + cos(1 + 1/x_2),,1.6300164150892378,False
+66,sklearngp,x_3/(x_1 - x_2*exp(x_2) - 1),,1146.7240429949768,False
+67,sklearngp,tan(exp(x_1 - x_2)) - 1,,193.3246935964432,False
+68,sklearngp,cos(x_1**5*(x_2 - x_3)**5)/x_1,,444.95485642220507,False
+69,sklearngp,x_1*cos(x_2)*tan(x_2),,0.009938640563426708,False
+70,sklearngp,exp(cos((x_1 + x_2 + 1)**4)),,2.6590036275594464,False
+71,sklearngp,x_3/(x_2*(x_3**2 + tan(x_1))),,20.297718439140105,False
+72,sklearngp,-x_3 + (-x_1 + x_2)/log(x_2) - 1,,16147.270198846125,False
+73,sklearngp,x_2 + cos(tan(x_1 - cos(1))),,34.259495734624075,False
+74,sklearngp,-x_2 + cos(x_2 - 1)/x_1,,51.73811556133096,False
+75,sklearngp,log(x_1/sin(1/x_1)),,0.04712981225952468,False
+76,sklearngp,x_3/(x_2 + cos(x_1/cos(x_2))),,3226.55294204347,False
+77,sklearngp,x_1 + x_1/(x_2*(x_1 + cos(x_2))),,306.0426415302656,False
+78,sklearngp,x_2/((x_1 + tan(x_2))*(x_2 + x_3)),,34842.09749621897,False
+79,sklearngp,x_1 - x_2*(cos(x_2) - cos(x_3)),,69.6245460105832,False
+80,sklearngp,x_3*cos(x_2 + x_3) + cos(x_1),,10.524200967831344,False
+81,sklearngp,x_2**2 - cos(cos(x_1)),,1937.3721857881676,False
+82,sklearngp,-x_2*sin(x_1*(x_3 - 1)),,16.752201465770405,False
+83,sklearngp,tan(cos(x_1) - tan(1)) - 1,,7580.539032649776,False
+84,sklearngp,(x_2 + x_3 - cos(x_1))/x_3,,1471.0231219563004,False
+85,sklearngp,x_1*(sin(x_2) - sin(x_3)/x_2),,1076.1679695489188,False
+86,sklearngp,x_3*cos(x_1**2 + x_2)**3,,10.742681290913477,False
+87,sklearngp,tan((x_1 - x_2**5)*sin(x_3)),,29657.962616798173,False
+88,sklearngp,-x_1*sin(tan(x_1*x_2)) + x_1,,37.26419787529601,False
+89,sklearngp,cos(1 - (x_2*x_3 + x_2)/x_1),,0.49926472185477305,False
+90,sklearngp,x_1 - (x_2 + x_3)*sin(x_1) + 1,,65.27923089656849,False
+91,sklearngp,-1/tan(x_1*x_2),,49191.74487018363,False
+92,sklearngp,sin(x_1) + tan(tan(exp(x_1))),,16943.73279989622,False
+93,sklearngp,(x_2 + x_3 + (x_2 - 1)/x_2)/x_1,,5822.150962185227,False
+94,sklearngp,x_1/(x_2*(-x_2 + x_3)) - x_2,,2786.4399675407594,False
+95,sklearngp,x_2 + log(x_1*(x_1 + sin(x_2))),,1.3553402895118083,False
+96,sklearngp,x_2 + x_3/(-x_1*x_3 - x_2),,1655.5946227264626,False
+97,sklearngp,sin(x_3*(x_1 - x_2 + 1)),,0.5101176915218454,False
+98,sklearngp,-x_2 + x_3*sin(cos(tan(x_1))),,24.16075250060405,False
+99,sklearngp,sin(x_2*(x_1 + x_3)**2 + x_2),,0.5103595308948892,False
+100,sklearngp,x_1*(x_2 - asin(1/x_1)),,0.17066555513305726,False
+101,sklearngp,cos(sqrt(x_1**2 - 1)),,0.00992127322855757,False
+102,sklearngp,x_1*(x_1 + x_2*cos(x_3)) + 1,,155.94516171544822,False
+103,sklearngp,x_1*cos(x_2**3 + x_2),,16.99793673444043,False
+104,sklearngp,sin(exp((x_2 + x_3)/x_1)),,0.2521348455618397,False
+105,sklearngp,tan(x_2 + (x_1 + x_3)/(x_2*x_3)),,3025.7281940205567,False
+106,sklearngp,exp(1 - cos(x_1)) + 1,,0.00968305996918522,False
+107,sklearngp,x_1 - sqrt(x_1 + x_2)/x_2,,10468.214325874604,False
+108,sklearngp,x_1/(x_1 + tan(sin(x_1))),,0.010064479136793522,False
+109,sklearngp,(x_3 + sin(x_1)/x_2)/x_3,,35.73539615696748,False
+110,sklearngp,x_2*x_3/(x_1*(x_1 + sqrt(x_2))),,80222.11226801555,False
+111,sklearngp,x_1*sin(x_2 + x_3*sin(x_1)),,15.893722611791624,False
+112,sklearngp,cos((x_1 + x_2)*(x_1 + x_3 + 1)),,0.5168119450669949,False
+113,sklearngp,x_2**2*sin(x_1 - 1) - 1,,0.01141194841420378,False
+114,sklearngp,x_2/(x_1*(x_2 + sin(x_1 + x_3))),,4633.419725493549,False
+115,sklearngp,x_3 - 1/(x_1 + exp(x_2)),,213.60694585974622,False
+116,sklearngp,x_2**2 - cos(sin(x_1)),,0.08854372400059692,False
+117,sklearngp,sqrt(x_1*(x_2/x_3 + x_3)),,58.34557245608078,False
+118,sklearngp,log(exp(x_1 + x_2) + log(x_2)),,0.04538351294368148,False
+119,sklearngp,x_1*x_2/log(log(-x_1)),,1788606.0904637722,False
+120,sklearngp,sqrt(-1 + (x_1*x_2 + x_2)/x_3),,60.76407956105546,False
+121,sklearngp,x_2*sin(x_1 - x_3**2),,16.804065190094736,False
+122,sklearngp,cos(sin(x_2) + x_3/x_1),,0.27812670489636987,False
+123,sklearngp,x_2 - log((x_1 - 1)**2),,44.040543965476225,False
+124,sklearngp,sqrt(tan(x_2*(-x_1 + exp(-1)))),,7.451751260889346,False
+125,sklearngp,-x_2*sin(x_1*x_3 + 1) - 1,,17.76554468461419,False
+126,sklearngp,-x_1 + exp(-sin(x_1/x_2)),,3.032654724247092,False
+127,sklearngp,x_1 - x_2**2 + x_2 + x_3 - 1,,2134.0286285091775,False
+128,sklearngp,log(cos(exp(-1/cos(x_1)))),,0.3028437387234479,False
+129,sklearngp,x_1 - x_2*cos(x_1**3),,36.84901539788806,False
+130,sklearngp,sin(x_2*x_3/x_1) - 1,,0.6147191030944122,False
+131,sklearngp,sqrt(x_2/(x_1 + x_1/sin(x_1))),,2536.1126203746235,False
+132,sklearngp,sin(cos(x_1*tan(x_1) + x_1)),,0.343236148056328,False
+133,sklearngp,x_2/(x_2 + sqrt(x_1*x_3)) + x_3,,2764.2442243817172,False
+134,sklearngp,log(sqrt(x_1*sin(x_2))),,0.1256875882409838,False
+135,sklearngp,x_3 + 1 - 1/(x_1 + x_2*x_3),,153.3091488548502,False
+136,sklearngp,-x_1 + x_2*cos(x_3 - sin(x_3)),,55.33066146526038,False
+137,sklearngp,x_2*(x_2 + x_3) - cos(tan(x_1)),,30.93152077038707,False
+138,sklearngp,cos(x_2)/cos(x_1/x_3),,785.6185323071752,False
+139,sklearngp,-x_1 + tan(x_1*x_2**2 - x_3),,14333.435229758674,False
+140,sklearngp,x_1**2 + x_2 - cos(x_2 - x_3),,3.93647245739302,False
+141,sklearngp,x_2*cos(x_2) + cos(x_1/x_2),,0.755817640336499,False
+142,sklearngp,cos(x_1 - tan(x_2)**2),,0.47460655954433917,False
+143,sklearngp,log(x_1 - x_2 + x_3 + exp(x_2)),,0.4101515564234276,False
+144,sklearngp,tan(x_1*cos(1/x_1)/x_2),,47194.03093054159,False
+145,sklearngp,-x_1*(x_1 + sin(x_1 + x_2)),,0.013517312081157024,False
+146,sklearngp,sin(log(-x_1/x_2 + x_2)),,0.03918257528452054,False
+147,sklearngp,tan(log(-x_1*x_2 + x_1)),,2951.82053400518,False
+148,sklearngp,x_1 + x_2 + sin(x_1 + x_3) + 1,,1.0613341038082995,False
+149,sklearngp,x_2 + x_3 - tan(x_2/x_1),,2071.579275012502,False
+150,sklearngp,x_2*(x_1 + log(x_2) + 1) + x_3,,1425.0318706253513,False
+151,sklearngp,sin(x_3)/(x_1**5 + x_2),,5.398812166989222,False
+152,sklearngp,x_1 + (x_2 + sin(x_1 + 1))/x_3,,10072.263940826257,False
+153,sklearngp,asin(sin(x_1)/x_1),,0.009728696891412088,False
+154,sklearngp,-x_2 + (x_1 + sqrt(x_2))**2,,0.08117607241249435,False
+155,sklearngp,x_2 + 1 + (x_1 + cos(x_1))/x_3,,1130.4402320929983,False
+156,sklearngp,cos(x_1*(-x_1 + x_2**2*x_3)),,0.5136417261366186,False
+157,sklearngp,(tan(x_2/x_1) - 1)/x_2,,208.65512793299723,False
+158,sklearngp,x_2*cos(x_1*x_2*x_3 + x_1),,16.22635120876536,False
+159,sklearngp,x_2**2 + sin(x_1*x_2),,1994.562472651345,False
+160,sklearngp,x_1*(-x_2 + sqrt(x_1 - x_3)),,0.16049193257569536,False
+161,sklearngp,x_3**2/(x_1*exp(x_2) + x_3),,13257.886275782079,False
+162,sklearngp,(-x_1 + (-x_1 + x_2)*log(x_2))/x_1,,50286.75788222093,False
+163,sklearngp,x_3 + sin(x_1) - 1/(x_2*x_3),,101.29072391631544,False
+164,sklearngp,x_1 - x_2 + tan(x_1**2 - x_3),,5431.923609360757,False
+165,sklearngp,sqrt(-x_1 + x_2*x_3/x_1),,26.06505381176761,False
+166,sklearngp,x_1 - sin(x_3/(x_1 + x_2 + 1)),,1.5500391783182241,False
+167,sklearngp,cos(x_1 + x_2 + (x_2 + x_3)**2),,0.510837542117257,False
+168,sklearngp,(-x_2 + x_3*(-x_1 + x_3))**(-3),,36821225138942.49,False
+169,sklearngp,-x_1 + cos(1 + 1/x_1),,13.393308285813523,False
+170,sklearngp,-x_3 + tan(x_3/(x_1*x_2)),,2462.370733403721,False
+171,sklearngp,-x_1**2 + x_1/x_2 + x_2 + x_3,,237782.1913798803,False
+172,sklearngp,cos((x_1 - x_2 - 1/x_2)**5),,0.5461782865605497,False
+173,sklearngp,x_2 + x_3 - x_3/(x_1 - 1),,3330.411028661421,False
+174,sklearngp,x_1 - x_3*(x_2 - 1) + tan(x_3),,4299.6240550824505,False
+175,sklearngp,x_2 - cos(sin(x_1) - 1)**2,,0.23663712698833878,False
+176,sklearngp,x_1 + x_2 + (x_1 + x_2*x_3)/x_3,,1542.2237761635602,False
+177,sklearngp,x_2/(-exp(x_1) + tan(x_1)) - 1,,554550.5076762447,False
+178,sklearngp,x_2*(x_2 - (-x_1 - 1)/x_2),,0.010171528247527385,True
+179,sklearngp,cos(sin(exp(x_1) + 1)),,0.2314728661591092,False
+180,sklearngp,log(x_2 + cos(x_2))/(x_1 + x_3),,1027.5659374598629,False
+181,sklearngp,-1 - sin(x_1)**2/x_2,,677.276737675821,False
+182,sklearngp,sin(tan(x_2))*cos(x_1),,0.22841536282933156,False
+183,sklearngp,cos(x_1*(x_2 + 1) + sin(x_1)),,0.5162437586784427,False
+184,sklearngp,sin((x_1 - x_3)/(x_2*x_3)),,0.17488721023172055,False
+185,sklearngp,cos(cos(x_2)**2/(-x_1 + x_3)**2),,0.25434255937023426,False
+186,sklearngp,x_3 + (-x_2 + x_3)*cos(x_1 + x_3),,29.734229525077232,False
+187,sklearngp,x_2 + x_3 + cos(x_1 + 1) + 1,,68.74082798773513,False
+188,sklearngp,asin(x_1**3/(x_3*(x_2 + x_3))),,0.08387350955192001,False
+189,sklearngp,cos((x_1 - 1)**3)**2,,0.2857391180269331,False
+190,sklearngp,x_1*(x_1 + x_3 + 1) + sqrt(x_2),,3208.859351091859,False
+191,sklearngp,-x_1 + x_2 - sin(x_2*x_3),,66.76932855763695,False
+192,sklearngp,sin(x_2*x_3*(x_1*x_2 + x_3)),,0.499394331237983,False
+193,sklearngp,sin((-x_2 + x_3)**2/(x_1 + x_2)),,0.44054183052005663,False
+194,sklearngp,(x_1*x_2 + sqrt(x_2))/x_1,,4301.038214620675,False
+195,sklearngp,x_1 - x_3 + (x_2 + x_3)*sin(x_3),,97.78224329712516,False
+196,sklearngp,x_1 + log(x_2 + tan(x_2)) + 1,,3.7094195640409655,False
+197,sklearngp,x_1 - x_2*x_3 + x_2 + cos(x_3),,0.15907074575765293,False
+198,sklearngp,x_1/(x_1 + x_2**2 + tan(x_3)),,89.8959227374848,False
+199,sklearngp,x_2 + x_3 - tan(x_1 - x_2)/x_3,,3627.6383175699316,False

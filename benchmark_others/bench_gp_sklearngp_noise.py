@@ -121,5 +121,5 @@ def bench_all_noise(path_to_test_set):
 
 if __name__ == "__main__":
     path_to_test_set = "/home/scur1229/nesymres/test_set/nc.csv"
-    bench_all(path_to_test_set)
-    # bench_all_noise(path_to_test_set)
+    # bench_all(path_to_test_set)
+    bench_all_noise(path_to_test_set)
