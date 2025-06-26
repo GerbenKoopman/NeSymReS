@@ -1,0 +1,53 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/hydra/core/utils.py:143: UserWarning: register_resolver() is deprecated.
+See https://github.com/omry/omegaconf/issues/426 for migration instructions.
+
+  OmegaConf.register_resolver(name, f)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/pytorch_lightning/utilities/migration/migration.py:208: You have multiple `ModelCheckpoint` callback states in this checkpoint, but we found state keys that would end up colliding with each other after an upgrade, which means we can't differentiate which of your checkpoint callbacks needs which states. At least one of your `ModelCheckpoint` callbacks will not be able to reload the state.
+Lightning automatically upgraded your loaded checkpoint from v1.3.3 to v2.4.0. To apply the upgrade to your files permanently, run `python -m pytorch_lightning.utilities.upgrade_checkpoint ../../../../../../../../../home/scur1229/nesymres/weights/100M.ckpt`
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 28 worker processes in total. Our suggested max number of worker in current system is 18, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+Testing expressions x_1 - x_3*(x_3 + exp(x_2))
+> /gpfs/home4/scur1229/nesymres/jupyter/run/True/2025-06-25/14-27-20/fitfunc.py(72)main()
+(Pdb) Traceback (most recent call last):
+  File "fitfunc.py", line 72, in main
+    output = fitfunc(X.T,y.squeeze())
+  File "fitfunc.py", line 72, in main
+    output = fitfunc(X.T,y.squeeze())
+  File "/home/scur1229/.conda/envs/nesymres/lib/python3.8/bdb.py", line 88, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/home/scur1229/.conda/envs/nesymres/lib/python3.8/bdb.py", line 113, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+
+
+JOB STATISTICS
+==============
+Job ID: 12618697
+Cluster: snellius
+User/Group: scur1229/scur1229
+State: RUNNING
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 00:06:36 core-walltime
+Job Wall-clock time: 00:00:22
+Memory Utilized: 0.00 MB
+Memory Efficiency: 0.00% of 120.00 GB (120.00 GB/node)
+WARNING: Efficiency statistics can only be obtained after the job has ended as seff tool is based on the accounting database data.

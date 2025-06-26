@@ -1,0 +1,51 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+Evaluating:   0%|          | 0/5 [00:00<?, ?it/s]<lambdifygenerated-1>:2: RuntimeWarning: invalid value encountered in log
+  return -x_1 + log(x_1 + x_2**4)
+<lambdifygenerated-3>:2: RuntimeWarning: invalid value encountered in log
+  return -x_1 + log(x_1 + x_2**4)
+Evaluating:  60%|██████    | 3/5 [00:00<00:00, 29.68it/s]<lambdifygenerated-17>:2: RuntimeWarning: invalid value encountered in log
+  return x_1 - x_2**2 - log(x_2)
+<lambdifygenerated-19>:2: RuntimeWarning: invalid value encountered in log
+  return x_1 - x_2**2 - log(x_2)
+Evaluating: 100%|██████████| 5/5 [00:00<00:00, 36.12it/s]
+
+==== In-Distribution (Aiid) ====
+Aiid (Top-1 Accuracy): 0.0000
+Mean MSE: 28.736979
+Mean R²: 0.103967
+
+==== Out-of-Distribution (Aood) ====
+Aood (Top-1 Accuracy): 0.0000
+Mean MSE: 1465.806451
+Mean R²: -0.097526
+
+==== Overall (A1) ====
+A1 (Top-1 Accuracy): 0.0000
+
+JOB STATISTICS
+==============
+Job ID: 12630380
+Cluster: snellius
+User/Group: scur1229/scur1229
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:00:02
+CPU Efficiency: 1.11% of 00:03:00 core-walltime
+Job Wall-clock time: 00:00:10
+Memory Utilized: 1.57 MB
+Memory Efficiency: 0.00% of 120.00 GB (120.00 GB/node)

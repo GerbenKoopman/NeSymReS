@@ -1,0 +1,52 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/hydra/core/utils.py:143: UserWarning: register_resolver() is deprecated.
+See https://github.com/omry/omegaconf/issues/426 for migration instructions.
+
+  OmegaConf.register_resolver(name, f)
+[rank: 0] Seed set to 42
+Traceback (most recent call last):
+  File "train.py", line 206, in main
+    model = setup_model(cfg, finetune_mode)
+  File "train.py", line 153, in setup_model
+    model = Model(cfg=cfg.architecture)
+  File "/home/scur1229/nesymres/src/nesymres/architectures/model.py", line 42, in __init__
+    self.enc = SetEncoder(cfg)
+  File "/home/scur1229/nesymres/src/nesymres/architectures/set_encoder.py", line 9, in __init__
+    self.linear = cfg.linear
+omegaconf.errors.ConfigAttributeError: Key 'linear' is not in struct
+    full_key: architecture.linear
+    object_type=dict
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Starting training experiment: train_20250625_093812
+Output directory: experiments/train_20250625_093812
+Setting up model for training from scratch...
+
+JOB STATISTICS
+==============
+Job ID: 12611573
+Cluster: snellius
+User/Group: scur1229/scur1229
+State: RUNNING
+Nodes: 1
+Cores per node: 9
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 00:02:51 core-walltime
+Job Wall-clock time: 00:00:19
+Memory Utilized: 0.00 MB
+Memory Efficiency: 0.00% of 60.00 GB (60.00 GB/node)
+WARNING: Efficiency statistics can only be obtained after the job has ended as seff tool is based on the accounting database data.

@@ -1,0 +1,118 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/pytorch_lightning/utilities/migration/migration.py:208: You have multiple `ModelCheckpoint` callback states in this checkpoint, but we found state keys that would end up colliding with each other after an upgrade, which means we can't differentiate which of your checkpoint callbacks needs which states. At least one of your `ModelCheckpoint` callbacks will not be able to reload the state.
+Lightning automatically upgraded your loaded checkpoint from v1.3.3 to v2.4.0. To apply the upgrade to your files permanently, run `python -m pytorch_lightning.utilities.upgrade_checkpoint ../weights/100M.ckpt`
+<lambdifygenerated-1>:2: RuntimeWarning: invalid value encountered in log
+  return -x_1 + log(x_1 + x_2**4)
+/gpfs/home4/scur1229/nesymres/src/nesymres/architectures/model.py:203: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X = torch.tensor(X,device=self.device).unsqueeze(0)
+/gpfs/home4/scur1229/nesymres/src/nesymres/architectures/model.py:207: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y = torch.tensor(y,device=self.device).unsqueeze(0)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/torch/nn/functional.py:5193: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+/gpfs/home4/scur1229/nesymres/src/nesymres/architectures/model.py:203: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X = torch.tensor(X,device=self.device).unsqueeze(0)
+/gpfs/home4/scur1229/nesymres/src/nesymres/architectures/model.py:207: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y = torch.tensor(y,device=self.device).unsqueeze(0)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/torch/nn/functional.py:5193: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+/gpfs/home4/scur1229/nesymres/src/nesymres/architectures/model.py:203: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X = torch.tensor(X,device=self.device).unsqueeze(0)
+/gpfs/home4/scur1229/nesymres/src/nesymres/architectures/model.py:207: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y = torch.tensor(y,device=self.device).unsqueeze(0)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/torch/nn/functional.py:5193: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+/gpfs/home4/scur1229/nesymres/src/nesymres/architectures/model.py:203: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X = torch.tensor(X,device=self.device).unsqueeze(0)
+/gpfs/home4/scur1229/nesymres/src/nesymres/architectures/model.py:207: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y = torch.tensor(y,device=self.device).unsqueeze(0)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/torch/nn/functional.py:5193: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+/gpfs/home4/scur1229/nesymres/src/nesymres/architectures/model.py:203: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X = torch.tensor(X,device=self.device).unsqueeze(0)
+/gpfs/home4/scur1229/nesymres/src/nesymres/architectures/model.py:207: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y = torch.tensor(y,device=self.device).unsqueeze(0)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/torch/nn/functional.py:5193: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+/gpfs/home4/scur1229/nesymres/src/nesymres/architectures/model.py:203: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  X = torch.tensor(X,device=self.device).unsqueeze(0)
+/gpfs/home4/scur1229/nesymres/src/nesymres/architectures/model.py:207: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  y = torch.tensor(y,device=self.device).unsqueeze(0)
+/home/scur1229/.conda/envs/nesymres/lib/python3.8/site-packages/torch/nn/functional.py:5193: UserWarning: Support for mismatched key_padding_mask and attn_mask is deprecated. Use same type for both instead.
+  warnings.warn(
+
+Equation 0: -x_1 + log(x_1 + x_2**4)
+X shape: torch.Size([500, 3]) y shape: torch.Size([500])
+Memory footprint of the encoder: 0.0001024GB 
+
+Warning all nans
+Memory footprint of the encoder: 0.0002048GB 
+
+Warning all nans
+Memory footprint of the encoder: 6.144e-05GB 
+
+Warning all nans
+config: {'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}
+best_bfgs_preds: []
+config: {'beam_size': 10, 'length_penalty': 0.8, 'max_len': 150}
+best_bfgs_preds: []
+config: {'beam_size': 3, 'length_penalty': 1.2, 'max_len': 80}
+best_bfgs_preds: []
+
+Equation 1: sin(x_3) + sin(x_3/(x_1 - x_2))
+X shape: torch.Size([500, 3]) y shape: torch.Size([500])
+Memory footprint of the encoder: 0.0001024GB 
+
+Memory footprint of the encoder: 0.0002048GB 
+
+Memory footprint of the encoder: 6.144e-05GB 
+
+config: {'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}
+best_bfgs_preds: ['sin(x_3) + sin(x_3*sin(0.00768209580371647*x_1))']
+config: {'beam_size': 10, 'length_penalty': 0.8, 'max_len': 150}
+best_bfgs_preds: ['0.993484826944429*sin(x_3) + sin(x_3*(x_1 + 0.968291661063754)/(x_2 - 1.75145859128823))']
+config: {'beam_size': 3, 'length_penalty': 1.2, 'max_len': 80}
+best_bfgs_preds: ['sin(x_3) + sin(x_3*(x_1 + 1.28441906891214)/x_2)']
+
+Equation 2: x_2*cos(x_1*x_3 - x_2) - 1
+X shape: torch.Size([500, 3]) y shape: torch.Size([500])
+Memory footprint of the encoder: 0.0001024GB 
+
+Memory footprint of the encoder: 0.0002048GB 
+
+Memory footprint of the encoder: 6.144e-05GB 
+
+config: {'beam_size': 5, 'length_penalty': 1.0, 'max_len': 100}
+best_bfgs_preds: ['x_2*sin(0.460285142195464*x_1*x_3*(x_2 + 1.25608081388633)) - 1']
+config: {'beam_size': 10, 'length_penalty': 0.8, 'max_len': 150}
+best_bfgs_preds: ['x_2*sin(5.66952023457871e-5*x_1*x_3*(x_2 + 15.9618291989547)) - 1']
+config: {'beam_size': 3, 'length_penalty': 1.2, 'max_len': 80}
+best_bfgs_preds: ['-x_2*sin(1.02917850325513*x_1*x_3*(x_2 + 0.282622646653484)) - 1']
+
+JOB STATISTICS
+==============
+Job ID: 12617776
+Cluster: snellius
+User/Group: scur1229/scur1229
+State: RUNNING
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 02:05:42 core-walltime
+Job Wall-clock time: 00:06:59
+Memory Utilized: 0.00 MB
+Memory Efficiency: 0.00% of 120.00 GB (120.00 GB/node)
+WARNING: Efficiency statistics can only be obtained after the job has ended as seff tool is based on the accounting database data.
