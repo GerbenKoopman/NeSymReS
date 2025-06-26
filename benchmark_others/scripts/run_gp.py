@@ -41,7 +41,7 @@ def run_gp(X_train, y_train, X_test, y_test, cfg):
 
 def run_gp_noise(X_train, y_train, X_test, y_test, cfg):
 
-    noise = np.random.normal(loc=0.0, scale=cfg["noise"]["std"], size=y_test.shape)
+    noise = np.random.normal(loc=0.0, scale=cfg["noise"]["std"], size=y_train.shape)
     y_train = y_train + noise
 
     from gplearn.genetic import SymbolicRegressor
