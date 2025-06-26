@@ -96,27 +96,70 @@
 #     plt.savefig(f'{method}_mse_scatter_comparison.png', dpi=300)
 #     plt.show()
 
+# import pandas as pd
+# import matplotlib.pyplot as plt
+# import numpy as np
+
+# df_clean = pd.read_csv('/home/scur1229/nesymres/benchmark_others/output/benchmark_accuracies.csv')
+# df_noise = pd.read_csv('/home/scur1229/nesymres/benchmark_others/output/benchmark_accuracies_noise.csv')
+
+# methods = df_clean['method'].unique()
+# plt.figure(figsize=(16, 6))  
+
+# for method in methods:
+#     mse_clean = df_clean[df_clean['method'] == method]['mse'].values
+#     mse_noise = df_noise[df_noise['method'] == method]['mse'].values
+#     x = np.arange(len(mse_clean))
+#     diff = mse_noise - mse_clean
+#     plt.plot(x, diff, marker='o', linestyle='-', label=method, alpha=0.7)
+
+# plt.xlabel('Expression Index')
+# plt.ylabel('MSE Difference (Noise - No Noise)')
+# plt.title('MSE Difference Comparison (Noise vs No Noise)')
+# plt.legend()
+# plt.tight_layout()
+# plt.savefig('all_methods_mse_diff_line.png', dpi=300)
+# plt.show()
+
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 
 df_clean = pd.read_csv('/home/scur1229/nesymres/benchmark_others/output/benchmark_accuracies.csv')
 df_noise = pd.read_csv('/home/scur1229/nesymres/benchmark_others/output/benchmark_accuracies_noise.csv')
 
-methods = df_clean['method'].unique()
-plt.figure(figsize=(16, 6))  
+df_nsr_noise = pd.read_csv('/home/scur1229/nesymres/benchmark_others/output/metrics_200_0.10.csv')
+df_nsr_clean = pd.read_csv('/home/scur1229/nesymres/benchmark_others/output/metrics_nesymres_200.csv')
 
-for method in methods:
-    mse_clean = df_clean[df_clean['method'] == method]['mse'].values
-    mse_noise = df_noise[df_noise['method'] == method]['mse'].values
-    x = np.arange(len(mse_clean))
-    diff = mse_noise - mse_clean
-    plt.plot(x, diff, marker='o', linestyle='-', label=method, alpha=0.7)
+data = []
+labels = []
 
-plt.xlabel('Expression Index')
-plt.ylabel('MSE Difference (Noise - No Noise)')
-plt.title('MSE Difference Comparison (Noise vs No Noise)')
-plt.legend()
+# gplearn/sklearngp
+method_map = {
+    'gplearn': 'GPLearn',
+    'sklearngp': 'GPR'
+}
+
+for method in df_clean['method'].unique():
+    show_name = method_map.get(method, method)
+    mse_clean = df_clean[df_clean['method'] == method]['mse']
+    mse_noise = df_noise[df_noise['method'] == method]['mse']
+    data.append(mse_clean)
+    labels.append(f'{show_name}\nNo Noise')
+    data.append(mse_noise)
+    labels.append(f'{show_name}\nNoise')
+
+# NSR
+data.append(df_nsr_clean['mse'])
+labels.append('NSR\nNo Noise')
+data.append(df_nsr_noise['mse'])
+labels.append('NSR\nNoise')
+
+plt.figure(figsize=(12, 6))
+plt.boxplot(data, labels=labels, showfliers=False)
+plt.yscale('log')
+plt.ylabel('MSE')
+plt.title('MSE Distribution Across 200 Equations (One MSE per Equation)')
+plt.xticks(rotation=30)
 plt.tight_layout()
-plt.savefig('all_methods_mse_diff_line.png', dpi=300)
+plt.savefig('mse_boxplot_comparison_all.png', dpi=300)
 plt.show()
