@@ -43,7 +43,7 @@ def convert_gplearn_expr(expr_pred):
 
 def bench_all(path_to_test_set):
     df = pd.read_csv(path_to_test_set)
-    # df = df.head(3)  
+    df = df.head(100)
 
     with open("/home/scur1229/nesymres/benchmark_others/configs/gplearn.yaml") as f:
         gp_cfg = yaml.safe_load(f)
@@ -82,7 +82,7 @@ def bench_all(path_to_test_set):
 
 def bench_all_noise(path_to_test_set):
     df = pd.read_csv(path_to_test_set)
-    # df = df.head(3) 
+    df = df.head(100) 
 
     with open("/home/scur1229/nesymres/benchmark_others/configs/gplearn.yaml") as f:
         gp_cfg = yaml.safe_load(f)
