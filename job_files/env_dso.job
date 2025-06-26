@@ -16,4 +16,4 @@ cd $HOME/nesymres/deep-symbolic-optimization
 
 source activate dso
 
-pip install pip install -e ./dso --no-cache-dir
+pip install -e ./dso --no-cache-dir
