@@ -1,0 +1,33 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+Obtaining file:///gpfs/home4/scur1229/nesymres/deep-symbolic-optimization/dso
+Requirement already satisfied: pip in /gpfs/home4/scur1229/.conda/envs/dso/lib/python3.6/site-packages (21.2.2)
+ERROR: Could not find a version that satisfies the requirement install (from versions: none)
+ERROR: No matching distribution found for install
+
+JOB STATISTICS
+==============
+Job ID: 12652283
+Cluster: snellius
+User/Group: scur1229/scur1229
+State: FAILED (exit code 1)
+Nodes: 1
+Cores per node: 9
+CPU Utilized: 00:00:03
+CPU Efficiency: 2.38% of 00:02:06 core-walltime
+Job Wall-clock time: 00:00:14
+Memory Utilized: 1.54 MB
+Memory Efficiency: 0.00% of 60.00 GB (60.00 GB/node)

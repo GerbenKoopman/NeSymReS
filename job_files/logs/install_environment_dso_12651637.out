@@ -1,0 +1,30 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+ERROR: File "setup.py" or "setup.cfg" not found. Directory cannot be installed in editable mode: /gpfs/home4/scur1229/nesymres/deep-symbolic-optimization/dso/dso
+
+JOB STATISTICS
+==============
+Job ID: 12651637
+Cluster: snellius
+User/Group: scur1229/scur1229
+State: FAILED (exit code 1)
+Nodes: 1
+Cores per node: 9
+CPU Utilized: 00:00:01
+CPU Efficiency: 0.62% of 00:02:42 core-walltime
+Job Wall-clock time: 00:00:18
+Memory Utilized: 1.46 MB
+Memory Efficiency: 0.00% of 60.00 GB (60.00 GB/node)

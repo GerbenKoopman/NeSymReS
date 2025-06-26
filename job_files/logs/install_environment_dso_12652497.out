@@ -1,0 +1,183 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+Obtaining file:///gpfs/home4/scur1229/nesymres/deep-symbolic-optimization/dso
+Collecting pytest
+  Downloading pytest-7.0.1-py3-none-any.whl (296 kB)
+Collecting cython
+  Downloading Cython-3.0.12-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.5 MB)
+Collecting numpy<=1.19
+  Downloading numpy-1.19.0-cp36-cp36m-manylinux2010_x86_64.whl (14.6 MB)
+Collecting tensorflow==1.14
+  Downloading tensorflow-1.14.0-cp36-cp36m-manylinux1_x86_64.whl (109.2 MB)
+Collecting numba==0.53.1
+  Downloading numba-0.53.1-cp36-cp36m-manylinux2014_x86_64.whl (3.4 MB)
+Collecting sympy
+  Downloading sympy-1.9-py3-none-any.whl (6.2 MB)
+Collecting pandas
+  Downloading pandas-1.1.5-cp36-cp36m-manylinux1_x86_64.whl (9.5 MB)
+Collecting scikit-learn
+  Downloading scikit_learn-0.24.2-cp36-cp36m-manylinux2010_x86_64.whl (22.2 MB)
+Collecting click
+  Downloading click-8.0.4-py3-none-any.whl (97 kB)
+Collecting deap
+  Downloading deap-1.4.3.tar.gz (1.1 MB)
+Collecting pathos
+  Downloading pathos-0.2.8-py2.py3-none-any.whl (81 kB)
+Collecting seaborn
+  Downloading seaborn-0.11.2-py3-none-any.whl (292 kB)
+Collecting progress
+  Downloading progress-1.6.tar.gz (7.8 kB)
+Collecting tqdm
+  Downloading tqdm-4.64.1-py2.py3-none-any.whl (78 kB)
+Collecting commentjson
+  Downloading commentjson-0.9.0.tar.gz (8.7 kB)
+Collecting PyYAML
+  Downloading PyYAML-6.0.1-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (677 kB)
+Collecting prettytable
+  Downloading prettytable-2.5.0-py3-none-any.whl (24 kB)
+Requirement already satisfied: setuptools in /gpfs/home4/scur1229/.conda/envs/dso/lib/python3.6/site-packages (from numba==0.53.1->dso==1.0.dev0) (58.0.4)
+Collecting llvmlite<0.37,>=0.36.0rc1
+  Downloading llvmlite-0.36.0-cp36-cp36m-manylinux2010_x86_64.whl (25.3 MB)
+Collecting astor>=0.6.0
+  Downloading astor-0.8.1-py2.py3-none-any.whl (27 kB)
+Collecting tensorboard<1.15.0,>=1.14.0
+  Downloading tensorboard-1.14.0-py3-none-any.whl (3.1 MB)
+Collecting keras-preprocessing>=1.0.5
+  Downloading Keras_Preprocessing-1.1.2-py2.py3-none-any.whl (42 kB)
+Collecting wrapt>=1.11.1
+  Downloading wrapt-1.16.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (77 kB)
+Collecting absl-py>=0.7.0
+  Downloading absl_py-1.4.0-py3-none-any.whl (126 kB)
+Collecting termcolor>=1.1.0
+  Downloading termcolor-1.1.0.tar.gz (3.9 kB)
+Collecting grpcio>=1.8.6
+  Downloading grpcio-1.48.2-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.6 MB)
+Collecting tensorflow-estimator<1.15.0rc0,>=1.14.0rc0
+  Downloading tensorflow_estimator-1.14.0-py2.py3-none-any.whl (488 kB)
+Collecting gast>=0.2.0
+  Downloading gast-0.6.0-py3-none-any.whl (21 kB)
+Collecting google-pasta>=0.1.6
+  Downloading google_pasta-0.2.0-py3-none-any.whl (57 kB)
+Collecting keras-applications>=1.0.6
+  Downloading Keras_Applications-1.0.8-py3-none-any.whl (50 kB)
+Collecting protobuf>=3.6.1
+  Downloading protobuf-3.19.6-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+Requirement already satisfied: wheel>=0.26 in /gpfs/home4/scur1229/.conda/envs/dso/lib/python3.6/site-packages (from tensorflow==1.14->dso==1.0.dev0) (0.37.1)
+Collecting six>=1.10.0
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Collecting h5py
+  Downloading h5py-3.1.0-cp36-cp36m-manylinux1_x86_64.whl (4.0 MB)
+Collecting markdown>=2.6.8
+  Downloading Markdown-3.3.7-py3-none-any.whl (97 kB)
+Collecting werkzeug>=0.11.15
+  Downloading Werkzeug-2.0.3-py3-none-any.whl (289 kB)
+Collecting importlib-metadata>=4.4
+  Downloading importlib_metadata-4.8.3-py3-none-any.whl (17 kB)
+Collecting typing-extensions>=3.6.4
+  Downloading typing_extensions-4.1.1-py3-none-any.whl (26 kB)
+Collecting zipp>=0.5
+  Downloading zipp-3.6.0-py3-none-any.whl (5.3 kB)
+Collecting dataclasses
+  Downloading dataclasses-0.8-py3-none-any.whl (19 kB)
+Collecting lark-parser<0.8.0,>=0.7.1
+  Downloading lark-parser-0.7.8.tar.gz (276 kB)
+Collecting cached-property
+  Downloading cached_property-1.5.2-py2.py3-none-any.whl (7.6 kB)
+Collecting pytz>=2017.2
+  Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+Collecting python-dateutil>=2.7.3
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Collecting multiprocess>=0.70.12
+  Downloading multiprocess-0.70.12.2-py36-none-any.whl (106 kB)
+Collecting pox>=0.3.0
+  Downloading pox-0.3.0-py2.py3-none-any.whl (30 kB)
+Collecting ppft>=1.6.6.4
+  Downloading ppft-1.6.6.4-py3-none-any.whl (65 kB)
+Collecting dill>=0.3.4
+  Downloading dill-0.3.4-py2.py3-none-any.whl (86 kB)
+Collecting wcwidth
+  Downloading wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+Collecting pluggy<2.0,>=0.12
+  Downloading pluggy-1.0.0-py2.py3-none-any.whl (13 kB)
+Collecting py>=1.8.2
+  Downloading py-1.11.0-py2.py3-none-any.whl (98 kB)
+Collecting iniconfig
+  Downloading iniconfig-1.1.1-py2.py3-none-any.whl (5.0 kB)
+Collecting tomli>=1.0.0
+  Downloading tomli-1.2.3-py3-none-any.whl (12 kB)
+Collecting packaging
+  Downloading packaging-21.3-py3-none-any.whl (40 kB)
+Collecting attrs>=19.2.0
+  Downloading attrs-22.2.0-py3-none-any.whl (60 kB)
+Collecting pyparsing!=3.0.5,>=2.0.2
+  Downloading pyparsing-3.1.4-py3-none-any.whl (104 kB)
+Collecting threadpoolctl>=2.0.0
+  Downloading threadpoolctl-3.1.0-py3-none-any.whl (14 kB)
+Collecting joblib>=0.11
+  Downloading joblib-1.1.1-py2.py3-none-any.whl (309 kB)
+Collecting scipy>=0.19.1
+  Downloading scipy-1.5.4-cp36-cp36m-manylinux1_x86_64.whl (25.9 MB)
+Collecting matplotlib>=2.2
+  Downloading matplotlib-3.3.4-cp36-cp36m-manylinux1_x86_64.whl (11.5 MB)
+Collecting cycler>=0.10
+  Downloading cycler-0.11.0-py3-none-any.whl (6.4 kB)
+Collecting pillow>=6.2.0
+  Downloading Pillow-8.4.0-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+Collecting kiwisolver>=1.0.1
+  Downloading kiwisolver-1.3.1-cp36-cp36m-manylinux1_x86_64.whl (1.1 MB)
+Collecting mpmath>=0.19
+  Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+Collecting importlib-resources
+  Downloading importlib_resources-5.4.0-py3-none-any.whl (28 kB)
+Building wheels for collected packages: termcolor, commentjson, lark-parser, deap, progress
+  Building wheel for termcolor (setup.py): started
+  Building wheel for termcolor (setup.py): finished with status 'done'
+  Created wheel for termcolor: filename=termcolor-1.1.0-py3-none-any.whl size=4848 sha256=77258909ade77f7c2750dfaa78c3c47a797bf62731237095e8feeff169e0d3a2
+  Stored in directory: /gpfs/scratch1/nodespecific/gcn2/scur1229.12652497/pip-ephem-wheel-cache-erwrdm41/wheels/93/2a/eb/e58dbcbc963549ee4f065ff80a59f274cc7210b6eab962acdc
+  Building wheel for commentjson (setup.py): started
+  Building wheel for commentjson (setup.py): finished with status 'done'
+  Created wheel for commentjson: filename=commentjson-0.9.0-py3-none-any.whl size=12092 sha256=a3c01bd3ae5490f88de87fe02237d7ea97b052fefc022bca33744f6a15381bc1
+  Stored in directory: /gpfs/scratch1/nodespecific/gcn2/scur1229.12652497/pip-ephem-wheel-cache-erwrdm41/wheels/35/76/9d/21e421c7b47746a47a942ee144f5dab944c3193cf549551ef2
+  Building wheel for lark-parser (setup.py): started
+  Building wheel for lark-parser (setup.py): finished with status 'done'
+  Created wheel for lark-parser: filename=lark_parser-0.7.8-py2.py3-none-any.whl size=62527 sha256=555757531ee0f10d1e0f7cc4425af8f6a92372414b14340ff42be573dfe8c29f
+  Stored in directory: /gpfs/scratch1/nodespecific/gcn2/scur1229.12652497/pip-ephem-wheel-cache-erwrdm41/wheels/3f/a7/bb/7878350a0f65cd28992d6afac367240e005f2a79b7a842ab2c
+  Building wheel for deap (setup.py): started
+  Building wheel for deap (setup.py): finished with status 'done'
+  Created wheel for deap: filename=deap-1.4.3-cp36-cp36m-linux_x86_64.whl size=133446 sha256=bcdb6ac33c8f64df0036b0bf63dc4c0011728de72322304f3b573fe7cdc29178
+  Stored in directory: /gpfs/scratch1/nodespecific/gcn2/scur1229.12652497/pip-ephem-wheel-cache-erwrdm41/wheels/16/ed/e0/0530f1f66bd909d8120e8938c5c57bcbd078f60e6409e82737
+  Building wheel for progress (setup.py): started
+  Building wheel for progress (setup.py): finished with status 'done'
+  Created wheel for progress: filename=progress-1.6-py3-none-any.whl size=9632 sha256=d3a5e792ec3d8a1d4015d47e815b5748cea1999f291dac58e27af74b081f4d35
+  Stored in directory: /gpfs/scratch1/nodespecific/gcn2/scur1229.12652497/pip-ephem-wheel-cache-erwrdm41/wheels/9f/92/2c/aa26d18b6a4d7df29d2cf1e1ff0bcf124a58fc10118485b160
+Successfully built termcolor commentjson lark-parser deap progress
+Installing collected packages: zipp, typing-extensions, six, numpy, importlib-metadata, dataclasses, cached-property, werkzeug, pytz, python-dateutil, pyparsing, protobuf, pillow, markdown, kiwisolver, h5py, grpcio, dill, cycler, absl-py, wrapt, wcwidth, tomli, threadpoolctl, termcolor, tensorflow-estimator, tensorboard, scipy, py, ppft, pox, pluggy, pandas, packaging, multiprocess, mpmath, matplotlib, llvmlite, lark-parser, keras-preprocessing, keras-applications, joblib, iniconfig, importlib-resources, google-pasta, gast, attrs, astor, tqdm, tensorflow, sympy, seaborn, scikit-learn, PyYAML, pytest, progress, prettytable, pathos, numba, deap, cython, commentjson, click, dso
+  Running setup.py develop for dso
+Successfully installed PyYAML-6.0.1 absl-py-1.4.0 astor-0.8.1 attrs-22.2.0 cached-property-1.5.2 click-8.0.4 commentjson-0.9.0 cycler-0.11.0 cython-3.0.12 dataclasses-0.8 deap-1.4.3 dill-0.3.4 dso-1.0.dev0 gast-0.6.0 google-pasta-0.2.0 grpcio-1.48.2 h5py-3.1.0 importlib-metadata-4.8.3 importlib-resources-5.4.0 iniconfig-1.1.1 joblib-1.1.1 keras-applications-1.0.8 keras-preprocessing-1.1.2 kiwisolver-1.3.1 lark-parser-0.7.8 llvmlite-0.36.0 markdown-3.3.7 matplotlib-3.3.4 mpmath-1.3.0 multiprocess-0.70.12.2 numba-0.53.1 numpy-1.19.0 packaging-21.3 pandas-1.1.5 pathos-0.2.8 pillow-8.4.0 pluggy-1.0.0 pox-0.3.0 ppft-1.6.6.4 prettytable-2.5.0 progress-1.6 protobuf-3.19.6 py-1.11.0 pyparsing-3.1.4 pytest-7.0.1 python-dateutil-2.9.0.post0 pytz-2025.2 scikit-learn-0.24.2 scipy-1.5.4 seaborn-0.11.2 six-1.17.0 sympy-1.9 tensorboard-1.14.0 tensorflow-1.14.0 tensorflow-estimator-1.14.0 termcolor-1.1.0 threadpoolctl-3.1.0 tomli-1.2.3 tqdm-4.64.1 typing-extensions-4.1.1 wcwidth-0.2.13 werkzeug-2.0.3 wrapt-1.16.0 zipp-3.6.0
+
+JOB STATISTICS
+==============
+Job ID: 12652497
+Cluster: snellius
+User/Group: scur1229/scur1229
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 9
+CPU Utilized: 00:01:05
+CPU Efficiency: 3.67% of 00:29:33 core-walltime
+Job Wall-clock time: 00:03:17
+Memory Utilized: 380.15 MB
+Memory Efficiency: 0.62% of 60.00 GB (60.00 GB/node)
