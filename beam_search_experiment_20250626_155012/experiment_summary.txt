@@ -1,0 +1,33 @@
+Beam Search Hyperparameter Testing Summary
+==================================================
+
+Total Experiments: 160
+Unique Equations Tested: 8
+
+Best Configurations:
+--------------------
+Best R² Score: 1.0000
+  - Beam Size: 10.0
+  - Length Penalty: 0.8
+  - Max Length: 50.0
+  - Equation: linear
+
+Best (lowest) MSE: 0.000000
+  - Beam Size: 20.0
+  - Length Penalty: 0.5
+  - Max Length: 150.0
+  - Equation: sqrt_abs
+
+Best Symbolic Match: 1.00
+  - Beam Size: 1.0
+  - Length Penalty: 2.0
+  - Max Length: 75.0
+  - Equation: quadratic_2d
+
+Overall Statistics:
+-----------------
+Average R² Score: -inf ± nan
+Average MSE: inf ± nan
+Average MAE: inf ± nan
+Symbolic Match Rate: 0.1187
+Average Inference Time: 8.3886 seconds
