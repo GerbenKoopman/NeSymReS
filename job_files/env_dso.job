@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu_mig
+#SBATCH --gpus=1
+#SBATCH --job-name=InstallEnvironmentDSO
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=9
+#SBATCH --time=00:15:00
+#SBATCH --output=logs/install_environment_dso_%A.out
+
+module purge
+module load 2024
+module load Anaconda3/2024.06-1
+
+cd $HOME/nesymres/deep-symbolic-optimization
+
+source activate dso
+
+pip install pip install -e ./dso
