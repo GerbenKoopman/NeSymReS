@@ -8,7 +8,7 @@ from scripts.bench_utils import generate_dataset, generate_dataset_test
 def bench_dsr(path_to_test_set):
     df = pd.read_csv(path_to_test_set)
 
-    with open("benchmark_others/configs/dsr.json") as f:
+    with open("configs/dsr.json") as f:
         cfg = json.load(f)
     
 
@@ -51,7 +51,7 @@ def bench_dsr(path_to_test_set):
 def bench_dsr_noise(path_to_test_set):
     df = pd.read_csv(path_to_test_set)
 
-    with open("benchmark_others/configs/dsr.json") as f:
+    with open("configs/dsr.json") as f:
         cfg = json.load(f)
 
 
@@ -91,7 +91,7 @@ def bench_dsr_noise(path_to_test_set):
 
 
 if __name__ == "__main__":
-    path_to_test_set = "~/nesymres/test_set/nc.csv"
+    path_to_test_set = "../test_set/nc.csv"
     results = bench_dsr(path_to_test_set)
     print(results)
 
