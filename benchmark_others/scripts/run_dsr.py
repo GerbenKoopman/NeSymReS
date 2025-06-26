@@ -1,6 +1,4 @@
 import numpy as np
-import tempfile
-import json
 import numpy as np
 from dso import DeepSymbolicRegressor
 
@@ -31,7 +29,7 @@ def run_dsr_noise(X_train, y_train, X_test, y_test, cfg):
     noise = np.random.normal(loc=0.0, scale=cfg["noise"]["std"], size=y_test.shape)
     y_test = y_test + noise
 
-    model = DeepSymbolicRegressor(tmp_path)
+    model = DeepSymbolicRegressor(cfg)
 
     model.fit(X_train, y_train)
 

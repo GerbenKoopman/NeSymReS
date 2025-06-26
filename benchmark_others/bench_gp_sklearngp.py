@@ -10,8 +10,11 @@ def bench_all(path_to_test_set):
     df = pd.read_csv(path_to_test_set)
 
     # Respective config files
-    gp_cfg    = yaml.safe_load(open("benchmark_others/configs/gplearn.yaml"))
-    skgp_cfg  = yaml.safe_load(open("benchmark_others/configs/sklearngp.yaml"))
+    with open("benchmark_others/configs/gplearn.yaml") as f:
+        gp_cfg = yaml.safe_load(f)
+
+    with open("benchmark_others/configs/sklearngp.yaml") as f:
+        skgp_cfg = yaml.safe_load(f)
 
     methods = [
         ("gplearn",       run_gp,        gp_cfg),
