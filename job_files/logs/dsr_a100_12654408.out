@@ -2349,3 +2349,18 @@ Numba: Attempted to fork from a non-main thread, the TBB library may be in an in
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
+slurmstepd: error: *** JOB 12654408 ON gcn45 CANCELLED AT 2025-06-26T22:39:59 DUE TO TIME LIMIT ***
+
+JOB STATISTICS
+==============
+Job ID: 12654408
+Cluster: snellius
+User/Group: scur1229/scur1229
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 00:00:01
+CPU Efficiency: 0.00% of 3-18:02:42 core-walltime
+Job Wall-clock time: 05:00:09
+Memory Utilized: 11.02 GB
+Memory Efficiency: 9.18% of 120.00 GB (120.00 GB/node)
