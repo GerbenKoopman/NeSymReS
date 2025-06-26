@@ -1,5 +1,6 @@
 import os
 import json
+import pysr
 import torch
 import random
 import argparse
@@ -9,6 +10,9 @@ import sympy as sp
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
+# from dso import DeepSymbolicOptimizer
+from gplearn.genetic import SymbolicRegressor
+from gplearn.functions import make_function
 from functools import partial
 from collections import defaultdict
 
@@ -25,7 +29,8 @@ def parse_args():
     parser.add_argument('--model_ckpt', '-m', type=str, default='/home/cezary/Projects/IEiAI/weights/100M.ckpt')
     parser.add_argument('--model_conf', '-c', type=str, default='/home/cezary/Projects/IEiAI/jupyter/100M/config.yaml')
     parser.add_argument('--eq_setting', '-e', type=str, default='/home/cezary/Projects/IEiAI/jupyter/100M/eq_setting.json')
-    parser.add_argument('--num_equations', '-n', type=int, default=None)
+    parser.add_argument('--noise_stds', '-n', type=float, nargs='+', default=[0])
+    parser.add_argument('--num_equations', '-N', type=int, default=None)
     return parser.parse_args()
 
 
@@ -66,7 +71,7 @@ def sample_points(equation, support, n_points, eq_setting, n_trials=20):
         return None, None
 
 
-def predict(args):
+def predict(args, noise_std):
     data = pd.read_csv(args.input_file)
     print(data)
 
@@ -102,8 +107,20 @@ def predict(args):
 
     fitfunc = partial(model.fitfunc, cfg_params=params_fit)
 
+
     num_equations = len(data) if args.num_equations is None else \
         min(args.num_equations, len(data))
+
+    all_X = np.empty(
+        (num_equations, data[:num_equations].num_points.max(), 3),
+        dtype=np.float64,
+    )
+    all_y = np.empty(
+        (num_equations, data[:num_equations].num_points.max()),
+        dtype=np.float64,
+    )
+    all_X[:], all_y[:] = np.nan, np.nan
+
     preds = defaultdict(list)
     for i, _, expr, supp, num_points in tqdm(
         data[:num_equations].itertuples(), total=num_equations
@@ -113,31 +130,134 @@ def predict(args):
         if X is None or y is None:
             continue
 
-        pred = fitfunc(X, y)[0]['output']
-        expr_pred = pred['best_bfgs_preds'][0] if pred['best_bfgs_preds'] else ''
+        if noise_std > 0:
+            noise = np.random.normal(loc=0.0, scale=noise_std, size=y.shape)
+            print('noise', noise[:10])
+            print('y', y[:10])
+            y += noise
+            print('y', y[:10])
+
+        all_X[i], all_y[i] = X, y
+
+        # NeSymRes
+        pred_nesymres = fitfunc(X, y)[0]['output']
+        expr_nesymres = pred_nesymres['best_bfgs_preds'][0] \
+            if pred_nesymres['best_bfgs_preds'] else ''
+
+        def protected_exp(x):
+            try:
+                return np.where(x < 100, np.exp(x), 1e10)  # prevent overflow
+            except:
+                return np.ones_like(x) * 1e1
+
+        exp_function = make_function(function = protected_exp, name='exp', arity=1)
+
+        # GPLearn
+        model_gp = SymbolicRegressor(
+            population_size=4096,
+            tournament_size=20,
+            p_crossover=0.9,
+            p_subtree_mutation=0.01,
+            function_set=[
+                "add", "sub", "mul", "div", "sqrt", "tan", 
+                "log", "neg", "inv", "sin", "cos", exp_function
+            ],
+            const_range=(-4*np.pi, 4*np.pi),
+            verbose=0,
+        )
+
+        # PySR
+        model_pysr = pysr.PySRRegressor(
+            niterations=50,
+            binary_operators=["+", "*", "-", "/"],
+            unary_operators=[
+                "cos", "exp", "sin", "asin", "log","tan",
+                "pow2(x) = x^2", "pow3(x) = x^3",
+                "pow4(x) = x^4", "pow5(x) = x^5", "inv(x) = 1/x",
+            ],
+            extra_sympy_mappings={
+                "inv": lambda x: 1 / x,
+                "pow2": lambda x: x ** 2,
+                "pow3": lambda x: x ** 3,
+                "pow4": lambda x: x ** 4,
+                "pow5": lambda x: x ** 5,
+            },
+            elementwise_loss="loss(prediction, target) = (prediction - target)^2",
+        )
+
+        # DSO
+        # model = DeepSymbolicOptimizer("path/to/config.json")
+
+        model_gp.fit(X, y)
+        model_pysr.fit(X, y)
+
+        # print(model_pysr, type(model_pysr))
+        # print(model_pysr.equations_.columns, type(model_pysr))
+        # print(model_pysr.equations_)
+        # print(vars(model_pysr))
+        # print(model_pysr.equations_.iloc[-1])
+        # print(model_pysr.equations_[model_pysr.equations_['pick'] == '>>>>'].equation)
+        # print(model_pysr.
+        # print(expr_gplearn._program.__str__())
+
+        converter = {
+            "add": sp.Add,
+            "mul": sp.Mul,
+            "sub": lambda x, y: x - y,
+            "div": lambda x, y: x / y,
+            "sqrt": sp.sqrt,
+            "tan": sp.tan, 
+            "log": sp.ln,
+            "neg": lambda x: -x,
+            "inv": lambda x: 1 / x,
+            "sin": sp.sin,
+            "cos": sp.cos,
+            "exp": sp.exp,
+        }
+        eq_gplearn = sp.sympify(model_gp._program.__str__(), locals=converter)
+        expr_gplearn = (
+            model_gp._program.__str__()
+            .replace('X0', 'x_0')
+            .replace('X1', 'x_1')
+            .replace('X2', 'x_2')
+        )
+
         preds['expr_true'].append(expr)
-        preds['expr_pred'].append(expr_pred)
+        preds['expr_nesymres'].append(expr_nesymres)
+        preds['expr_gplearn'].append(expr_gplearn)  # model_gp._program.__str__())
+        preds['expr_pysr'].append(str(model_pysr.sympy()))
         preds['support'].append(supp)
         preds['variables'].append(list(supp.keys()))
         preds['num_points'].append(num_points)
 
-        print('True:', expr)
-        print('Pred:', expr_pred if expr_pred else 'error')
+        print('')
+        print('    True:', expr)
+        print('NeSymRes:', expr_nesymres if expr_nesymres else 'error')
+        print(' GPLearn:', model_gp._program.__str__())
+        print(' GPLearn:', expr_gplearn)
+        print('    PySR:', str(model_pysr.sympy()))
+        print('')
 
-    return pd.DataFrame(preds)
+    return pd.DataFrame(preds), all_X, all_y
 
 
 def main():
     args = parse_args()
     set_seed()
 
-    preds = predict(args)
-    print(preds)
-    print(f'Successful prediction for {len(preds)} out of {args.num_equations} equations')
+    for i, std in enumerate(args.noise_stds):
+        print(f'\nnoise std = {std} ({i+1}/{len(args.noise_stds)})')
+        preds, X, y = predict(args, std)
+        print(preds)
+        print(f'Successful prediction for {len(preds)} out of {args.num_equations} equations')
 
-    os.makedirs(args.output_dir, exist_ok=True)
-    num_equations = args.num_equations if args.num_equations else 'all'
-    preds.to_csv(os.path.join(args.output_dir, f'pred_nesymres_{num_equations}.csv'), index=False)
+        os.makedirs(args.output_dir, exist_ok=True)
+        num_equations = args.num_equations if args.num_equations else 'all'
+        preds.to_csv(
+            os.path.join(args.output_dir, 'noise', f'pred_nesymres_{num_equations}_{std:.5f}.csv'),
+            index=False,
+        )
+        np.savez_compressed(f'point_{num_equations}_{std}.npz', X=X, y=y)
 
 
 if __name__ == '__main__':
