@@ -31,7 +31,7 @@ def run_sklearngp_noise(X_train, y_train, X_test, y_test, cfg):
     from sklearn.gaussian_process.kernels import ConstantKernel, RBF
     
     noise = np.random.normal(loc=0.0, scale=cfg["noise"]["std"], size=y_test.shape)
-    y_test = y_test + noise
+    y_train = y_train + noise
 
     kernel = ConstantKernel() * RBF()
     model = GaussianProcessRegressor(

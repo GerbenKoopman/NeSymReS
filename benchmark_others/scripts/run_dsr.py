@@ -27,7 +27,7 @@ def run_dsr(X_train, y_train, X_test, y_test, cfg):
 def run_dsr_noise(X_train, y_train, X_test, y_test, cfg):
 
     noise = np.random.normal(loc=0.0, scale=cfg["noise"]["std"], size=y_test.shape)
-    y_test = y_test + noise
+    y_train = y_train + noise
 
     model = DeepSymbolicRegressor(cfg)
 
