@@ -91,7 +91,7 @@ def bench_dsr_noise(path_to_test_set):
 
 
 if __name__ == "__main__":
-    path_to_test_set = "test_set/nc.csv"
+    path_to_test_set = "~/nesymres/test_set/nc.csv"
     results = bench_dsr(path_to_test_set)
     print(results)
 
