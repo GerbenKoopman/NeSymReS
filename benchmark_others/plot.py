@@ -129,6 +129,8 @@ df_noise = pd.read_csv('/home/scur1229/nesymres/benchmark_others/output/benchmar
 
 df_nsr_noise = pd.read_csv('/home/scur1229/nesymres/benchmark_others/output/metrics_200_0.10.csv')
 df_nsr_clean = pd.read_csv('/home/scur1229/nesymres/benchmark_others/output/metrics_nesymres_200.csv')
+df_nsr_noise = df_nsr_noise.head(100)
+df_nsr_clean = df_nsr_clean.head(100)
 
 data = []
 labels = []
@@ -158,7 +160,7 @@ plt.figure(figsize=(12, 6))
 plt.boxplot(data, labels=labels, showfliers=False)
 plt.yscale('log')
 plt.ylabel('MSE')
-plt.title('MSE Distribution Across 200 Equations (One MSE per Equation)')
+plt.title('MSE Distribution Across 100 Equations (One MSE per Equation)')
 plt.xticks(rotation=30)
 plt.tight_layout()
 plt.savefig('mse_boxplot_comparison_all.png', dpi=300)
